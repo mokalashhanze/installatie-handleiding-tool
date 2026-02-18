@@ -30,8 +30,8 @@ Om BWA vanuit elke map in de terminal te kunnen aanroepen, voegen we de maplocat
 2. **Voeg het pad toe:** vervang */pad/naar/bwa-master* door de werkelijke locatie op jouw computer
 ```bash
   export PATH=$PATH:/pad/naar/bwa-master
-4. Opslaan en afsluiten:
+3.  **Opslaan en afsluiten:**
 Druk op Ctrl + O (opslaan), dan Enter, en daarna op Ctrl + X (afsluiten).
-4.Activeer de wijzigingen: voer je in de commandline uit:
+4. **Activeer de wijzigingen:** voer je in de commandline uit:
 ```bash
   source ~/.bashrc
