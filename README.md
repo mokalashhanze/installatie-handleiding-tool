@@ -2,7 +2,7 @@
 Groepsopdracht: Markdown installatiehandleiding voor geselecteerde bio-informatica tools (BWA/SAMtools/BCFtools).
 ## Installatie van BWA 
 Volg deze stappen om de nieuwste versie van BWA te downloaden en te installeren op je Linux-systeem:
-### stap1: BWA Downloaden
+### stap 1: BWA Downloaden
 1. Ga naar de website: [https://github.com](https://github.com).
 2. Klik op de groene knop **"Code"**.
 3. Selecteer de optie **"Download ZIP"**.
