@@ -10,20 +10,23 @@ Volg deze stappen om de nieuwste versie van BWA te downloaden en te installeren 
 ### Stap 2: BWA zip openen
 1. **Open de terminal:** Navigeer naar de map waar je BWA hebt gedownload.
   ```bash
-  cd bwa 
+  cd bwa
+  ` ` `
 2. **Map openen en unzippen::** Gebruik het volgende commando:
   ```bash
-  cd bwa
   unzip bwa-master.zip
   cd bwa-master
+  ` ` `
 ### Stap 3: BWA Compileren
 de software bouwen met het `make` commando
 1. **Start de installatie:** Voer het volgende commando uit in de terminal:
    ```bash
    make
+   ` ` `
 2. Controleer of de installatie is gelukt door de tool op te roepen:
   ```bash  
   ./bwa
+   ` ` `
 ### Stap 4: BWA toevoegen aan je PATH
 Om BWA vanuit elke map in de terminal te kunnen aanroepen, voegen we de maplocatie toe aan je systeemvariabelen:
 1. **Open je bash-configuratie:**
