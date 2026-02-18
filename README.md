@@ -44,3 +44,5 @@ Druk op Ctrl + O (opslaan), dan Enter, en daarna op Ctrl + X (afsluiten).
    ```bash
       source ~/.bashrc
    ```
+## Installatie van Samtools:
+
