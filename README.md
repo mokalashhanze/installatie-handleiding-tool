@@ -3,7 +3,7 @@ Groepsopdracht: Markdown installatiehandleiding voor geselecteerde bio-informati
 ## Installatie van BWA 
 Volg deze stappen om de nieuwste versie van ***BWA*** te downloaden en te installeren op je Linux-systeem:
 ### Stap 1: BWA Downloaden
-1. Ga naar de website: [https://github.com](https://github.com).
+1. Ga naar de website: [https://github.com/lh3/bwa](https://github.com/lh3/bwa).
 2. Klik op de groene knop **"Code"**.
 3. Selecteer de optie **"Download ZIP"**.
 4. Pak het bestand uit op je computer.
@@ -46,4 +46,6 @@ Druk op Ctrl + O (opslaan), dan Enter, en daarna op Ctrl + X (afsluiten).
    ```
 ## Installatie van Samtools:
 Volg deze stappen om de nieuwste versie van ***Samtools*** te downloaden en te installeren op je Linux-systeem:
+### Stap 1: Samtools downloaden
+1. Ga naar de website
 
