@@ -1,8 +1,8 @@
-# installatie-handleiding-tool
+# Istallatie-handleiding-tool
 Groepsopdracht: Markdown installatiehandleiding voor geselecteerde bio-informatica tools (BWA/SAMtools/BCFtools).
 ## Installatie van BWA 
-Volg deze stappen om de nieuwste versie van BWA te downloaden en te installeren op je Linux-systeem:
-### stap 1: BWA Downloaden
+Volg deze stappen om de nieuwste versie van ***BWA*** te downloaden en te installeren op je Linux-systeem:
+### Stap 1: BWA Downloaden
 1. Ga naar de website: [https://github.com](https://github.com).
 2. Klik op de groene knop **"Code"**.
 3. Selecteer de optie **"Download ZIP"**.
@@ -45,4 +45,5 @@ Druk op Ctrl + O (opslaan), dan Enter, en daarna op Ctrl + X (afsluiten).
       source ~/.bashrc
    ```
 ## Installatie van Samtools:
+Volg deze stappen om de nieuwste versie van ***Samtools*** te downloaden en te installeren op je Linux-systeem:
 
