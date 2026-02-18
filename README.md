@@ -22,25 +22,25 @@ de software bouwen met het `make` commando
 
 1. **Start de installatie:** Voer het volgende commando uit in de terminal:
    ```bash
-   make
+     make
    ```
 2. Controleer of de installatie is gelukt door de tool op te roepen:
   ```bash  
-  ./bwa
+    ./bwa
    ```
 ### Stap 4: BWA toevoegen aan je PATH
 Om BWA vanuit elke map in de terminal te kunnen aanroepen, voegen we de maplocatie toe aan je systeemvariabelen:
 1. **Open je bash-configuratie:**
    ```bash
-   nano ~/.bashrc
+     nano ~/.bashrc
    ```
 2. **Voeg het pad toe:** vervang */pad/naar/bwa-master* door de werkelijke locatie op jouw computer
     ```bash
-    export PATH=$PATH:/pad/naar/bwa-master
+      export PATH=$PATH:/pad/naar/bwa-master
     ```
 3. **Opslaan en afsluiten:**
 Druk op Ctrl + O (opslaan), dan Enter, en daarna op Ctrl + X (afsluiten).
 4. **Activeer de wijzigingen:** voer je in de commandline uit:
     ```bash
-    source ~/.bashrc
+      source ~/.bashrc
     ```
