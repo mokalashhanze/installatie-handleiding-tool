@@ -24,12 +24,12 @@ de software bouwen met het `make` commando
    ```
      make
    ```
-2. Controleer of de installatie is gelukt door de tool op te roepen:
+2. Controleer of de installatie gelukt is door de tool op te roepen:
    ```  
     ./bwa
    ```
 ### Stap 4: BWA toevoegen aan je PATH
-Om BWA vanuit elke map in de terminal te kunnen aanroepen, voegen we de maplocatie toe aan je systeemvariabelen:
+Om BWA vanuit elke map in de terminal te kunnen aanroepen, moet je deze stappen volgen
 1. **Open je bash-configuratie:**
    ```
      nano ~/.bashrc
@@ -48,20 +48,35 @@ Druk op Ctrl + O (opslaan), dan Enter, en daarna op Ctrl + X (afsluiten).
 Volg deze stappen om de nieuwste versie van ***Samtools*** te downloaden en te installeren op je Linux-systeem:
 ### Stap 1: Samtools downloaden
 1. Ga naar de website [https://www.htslib.org/download/](https://www.htslib.org/download/)
-2. klik op de groene knop **"Samtools-1.2"**
+2. klik op de groene knop **"Samtools-1.23"**
 3. pak het bestaand uit op je computer
-### Stap 2: Samtools bestaand uitpakken en openen
+### Stap 2: Samtools bestand uitpakken en openen
 Gebruik het **tar** commando om het gecomprimeerde bestand te openen:
    ```
    tar xf samtools-1.23.tar.bz2
    cd samtools-1.23
    ```
 ### Stap 3: Samtools installeren:
-Gebruik het **configure**,**make** en **make install** commando's om Samtools te installeren
+Gebruik het **configure**,**make** en **make install** commando om Samtools te installeren
    ```
-   configure
+   ./configure
    make
    make install
+   ```
+### Stap 4: Samtools toevoegen aan je PATH
+1. **Open je bash-configuratie:**
+   ```
+     nano ~/.bashrc
+   ```
+2. **Voeg het pad toe:** vervang */pad/naar/samtools-1.23* door de werkelijke locatie op jouw computer
+   ```
+      export PATH="/pad/naar/samtools-1.23:$PATH"
+   ```
+3. **Opslaan en afsluiten:**
+Druk op Ctrl + O (opslaan), dan Enter, en daarna op Ctrl + X (afsluiten).
+4. **Activeer de wijzigingen:** voer je in de commandline uit:
+   ```
+      source ~/.bashrc
    ```
 
 
