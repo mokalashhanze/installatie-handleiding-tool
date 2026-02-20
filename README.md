@@ -48,7 +48,13 @@ Druk op Ctrl + O (opslaan), dan Enter, en daarna op Ctrl + X (afsluiten).
 Volg deze stappen om de nieuwste versie van ***Samtools*** te downloaden en te installeren op je Linux-systeem:
 ### Stap 1: Samtools downloaden
 1. Ga naar de website [https://www.htslib.org/download/](https://www.htslib.org/download/)
-2. klik op de groene knop **""Samtools-1.2"**
+2. klik op de groene knop **"Samtools-1.2"**
 3. pak het bestaand uit op je computer
+### Stap 2: Samtools bestaand uitpakken 
+Gebruik het **tar** commando om het gecomprimeerde bestand te openen:
+   ```
+   tar -jxvf samtools-1.23.tar.bz2
+   ```
+
 
 
