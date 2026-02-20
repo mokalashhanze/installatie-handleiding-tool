@@ -9,11 +9,11 @@ Volg deze stappen om de nieuwste versie van ***BWA*** te downloaden en te instal
 4. Pak het bestand uit op je computer.
 ### Stap 2: BWA zip openen
 1. **Open de terminal:** Navigeer naar de map waar je BWA hebt gedownload.
-   ```bash
+   ```
     cd bwa
    ```
 2. **Map openen en unzippen::** Gebruik het volgende commando:
-   ```bash
+   ```
     unzip bwa-master.zip
     cd bwa-master
    ```
@@ -47,5 +47,8 @@ Druk op Ctrl + O (opslaan), dan Enter, en daarna op Ctrl + X (afsluiten).
 ## Installatie van Samtools:
 Volg deze stappen om de nieuwste versie van ***Samtools*** te downloaden en te installeren op je Linux-systeem:
 ### Stap 1: Samtools downloaden
-1. Ga naar de website
+1. Ga naar de website [https://www.htslib.org/download/](https://www.htslib.org/download/)
+2. klik op de groene knop **""Samtools-1.2"**
+3. pak het bestaand uit op je computer
+
 
