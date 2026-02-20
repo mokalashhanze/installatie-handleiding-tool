@@ -50,11 +50,20 @@ Volg deze stappen om de nieuwste versie van ***Samtools*** te downloaden en te i
 1. Ga naar de website [https://www.htslib.org/download/](https://www.htslib.org/download/)
 2. klik op de groene knop **"Samtools-1.2"**
 3. pak het bestaand uit op je computer
-### Stap 2: Samtools bestaand uitpakken 
+### Stap 2: Samtools bestaand uitpakken en openen
 Gebruik het **tar** commando om het gecomprimeerde bestand te openen:
    ```
-   tar -jxvf samtools-1.23.tar.bz2
+   tar xf samtools-1.23.tar.bz2
+   cd samtools-1.23
    ```
+### Stap 3: Samtools installeren:
+Gebruik het **configure**,**make** en **make install** commando's om Samtools te installeren
+   ```
+   configure
+   make
+   make install
+   ```
+
 
 
 
