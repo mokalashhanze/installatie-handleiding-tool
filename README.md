@@ -55,11 +55,15 @@ Volg deze stappen om de nieuwste versie van ***Samtools*** te downloaden en te i
       cd samtools-1.23
    ```
 ### Stap 3: Samtools installeren:
-Gebruik het **configure**,**make** en **make install** commando om Samtools te installeren
+   1. Gebruik het **configure**,**make** en **make install** commando om Samtools te installeren
    ```
       ./configure
       make
       make install
+   ```
+   2. Controleer of de installatie gelukt is door de tool op te roepen:
+   ```  
+      ./Samtools
    ```
 ### Stap 4: Samtools toevoegen aan je PATH
 Om Samtools vanuit elke map in de terminal te kunnen aanroepen, moet je deze stappen volgen
@@ -91,11 +95,15 @@ Volg deze stappen om de nieuwste versie van ***Bcftools*** te downloaden en te i
       cd bcftools-1.23
    ```
 ### Stap3: Bcftools installeren
-Gebruik het **configure**,**make** en **make install** commando om Samtools te installeren
+   1. Gebruik het **configure**,**make** en **make install** commando om Samtools te installeren
    ```
       ./configure
       make
       make install
+   ```
+   2. Controleer of de installatie gelukt is door de tool op te roepen:
+   ```  
+      ./Bcftools
    ```
 ### Stap 4: Bcftools toevoegen aan je PATH
 Om Bcftools vanuit elke map in de terminal te kunnen aanroepen, moet je deze stappen volgen
