@@ -10,12 +10,12 @@ Volg deze stappen om de nieuwste versie van ***BWA*** te downloaden en te instal
 ### Stap 2: BWA zip openen
 1. **Open de terminal:** Navigeer naar de map waar je BWA hebt gedownload.
    ```
-    cd bwa
+      cd bwa
    ```
 2. **Map openen en unzippen::** Gebruik het volgende commando:
    ```
-    unzip bwa-master.zip
-    cd bwa-master
+      unzip bwa-master.zip
+      cd bwa-master
    ```
 ### Stap 3: BWA Compileren
 de software bouwen met het `make` commando
@@ -26,7 +26,7 @@ de software bouwen met het `make` commando
    ```
 2. Controleer of de installatie gelukt is door de tool op te roepen:
    ```  
-    ./bwa
+      ./bwa
    ```
 ### Stap 4: BWA toevoegen aan je PATH
 Om BWA vanuit elke map in de terminal te kunnen aanroepen, moet je deze stappen volgen
@@ -53,15 +53,15 @@ Volg deze stappen om de nieuwste versie van ***Samtools*** te downloaden en te i
 ### Stap 2: Samtools bestand uitpakken en openen
 Gebruik het **tar** commando om het gecomprimeerde bestand te openen:
    ```
-   tar xf samtools-1.23.tar.bz2
-   cd samtools-1.23
+      tar xf samtools-1.23.tar.bz2
+      cd samtools-1.23
    ```
 ### Stap 3: Samtools installeren:
 Gebruik het **configure**,**make** en **make install** commando om Samtools te installeren
    ```
-   ./configure
-   make
-   make install
+      ./configure
+      make
+      make install
    ```
 ### Stap 4: Samtools toevoegen aan je PATH
 1. **Open je bash-configuratie:**
