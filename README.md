@@ -59,14 +59,14 @@ Gebruik het **tar** commando om het gecomprimeerde bestand te openen:
 ### Stap 3: Samtools installeren:
 Gebruik het **configure**,**make** en **make install** commando om Samtools te installeren
    ```
-      ./configure
-      make
-      make install
+         ./configure
+         make
+         make install
    ```
 ### Stap 4: Samtools toevoegen aan je PATH
 1. **Open je bash-configuratie:**
    ```
-     nano ~/.bashrc
+        nano ~/.bashrc
    ```
 2. **Voeg het pad toe:** vervang */pad/naar/samtools-1.23* door de werkelijke locatie op jouw computer
    ```
