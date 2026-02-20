@@ -48,7 +48,7 @@ Volg deze stappen om de nieuwste versie van ***Samtools*** te downloaden en te i
 ### Stap 3: Samtools installeren:
    1. Gebruik het **configure**,**make** en **make install** commando om Samtools te installeren
    ```
-      ./configure
+      ./configure prefix=--/pad/naar/samtools-1.23
       make
       make install
    ```
@@ -88,7 +88,7 @@ Volg deze stappen om de nieuwste versie van ***Bcftools*** te downloaden en te i
 ### Stap3: Bcftools installeren
    1. Gebruik het **configure**,**make** en **make install** commando om Samtools te installeren
    ```
-      ./configure
+      ./configure prefix=--/pad/naar/samtools-1.23
       make
       make install
    ```
