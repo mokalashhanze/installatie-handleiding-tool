@@ -9,9 +9,6 @@ Volg deze stappen om de nieuwste versie van ***BWA*** te downloaden en te instal
 4. Pak het bestand uit op je computer.
 ### Stap 2: BWA zip openen
 1. **Open de terminal:** Navigeer naar de map waar je BWA hebt gedownload.
-   ```
-      cd bwa
-   ```
 2. **Map openen en unzippen::** Gebruik het volgende commando:
    ```
       unzip bwa-master.zip
@@ -51,7 +48,8 @@ Volg deze stappen om de nieuwste versie van ***Samtools*** te downloaden en te i
 2. klik op de groene knop **"Samtools-1.23"**
 3. pak het bestaand uit op je computer
 ### Stap 2: Samtools bestand uitpakken en openen
-Gebruik het **tar** commando om het gecomprimeerde bestand te openen:
+1. **Open de terminal:** Navigeer naar de map waar je **Samtools** hebt gedownload.
+2. Gebruik het **tar** commando om het gecomprimeerde bestand te openen:
    ```
       tar xf samtools-1.23.tar.bz2
       cd samtools-1.23
@@ -86,7 +84,8 @@ Volg deze stappen om de nieuwste versie van ***Bcftools*** te downloaden en te i
 2. klik op de groene knop **"Bcftools-1.23"**
 3. pak het bestaand uit op je computer
 ### Stap 2: Bcftools bestand uipakken en openen:
-Gebruik het **tar** commando om het gecomprimeerde bestand te openen:
+1. **Open de terminal:** Navigeer naar de map waar je **Bcftools** hebt gedownload.
+2. Gebruik het **tar** commando om het gecomprimeerde bestand te openen:
    ```
       tar xf bcftools-1.23.tar.bz2
       cd bcftools-1.23
