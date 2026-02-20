@@ -1,20 +1,20 @@
 # Istallatie-handleiding-tool
 Groepsopdracht: Markdown installatiehandleiding voor geselecteerde bio-informatica tools (BWA/SAMtools/BCFtools).
-## Installatie van BWA 
-Volg deze stappen om de nieuwste versie van ***BWA*** te downloaden en te installeren op je Linux-systeem:
-### Stap 1: BWA Downloaden
-1. Ga naar de website: [https://github.com/lh3/bwa](https://github.com/lh3/bwa).
+## Installatie van bwa-mem2 
+Volg deze stappen om de nieuwste versie van ***bwa-mem2*** te downloaden en te installeren op je Linux-systeem:
+### Stap 1: bwa-mem2 Downloaden
+1. Ga naar de website: [https://github.com/bwa-mem2/bwa-mem2](https://github.com/bwa-mem2/bwa-mem2)
 2. Klik op de groene knop **"Code"**.
 3. Selecteer de optie **"Download ZIP"**.
 4. Pak het bestand uit op je computer.
-### Stap 2: BWA zip openen
+### Stap 2: bwa-mem2 zip openen
 1. **Open de terminal:** Navigeer naar de map waar je BWA hebt gedownload.
 2. **Map openen en unzippen::** Gebruik het volgende commando:
    ```
-      unzip bwa-master.zip
-      cd bwa-master
+      unzip cd bwa-mem2-master
+      cd cd bwa-mem2-master
    ```
-### Stap 3: BWA Compileren
+### Stap 3: bwa-mem2 Compileren
 de software bouwen met het `make` commando
 
 1. **Start de installatie:** Voer het volgende commando uit in de terminal:
@@ -23,17 +23,17 @@ de software bouwen met het `make` commando
    ```
 2. Controleer of de installatie gelukt is door de tool op te roepen:
    ```  
-      ./bwa
+      ./bwa-mem2
    ```
-### Stap 4: BWA toevoegen aan je PATH
+### Stap 4: bwa-mem2 toevoegen aan je PATH
 Om BWA vanuit elke map in de terminal te kunnen aanroepen, moet je deze stappen volgen
 1. **Open je bash-configuratie:**
    ```
      nano ~/.bashrc
    ```
-2. **Voeg het pad toe:** vervang */pad/naar/bwa-master* door de werkelijke locatie op jouw computer
+2. **Voeg het pad toe:** vervang */pad/naar/bwa-mem2-master* door de werkelijke locatie op jouw computer
    ```
-      export PATH="/pad/naar/bwa-master:$PATH"
+      export PATH="/pad/naar/bwa-mem2-master:$PATH"
    ```
 3. **Opslaan en afsluiten:**
 Druk op Ctrl + O (opslaan), dan Enter, en daarna op Ctrl + X (afsluiten).
