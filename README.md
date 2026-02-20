@@ -5,7 +5,7 @@ Volg deze stappen om de nieuwste versie van ***bwa-mem2*** te downloaden en te i
 ### Stap 1: bwa-mem2 Downloaden
 1. Ga naar de website: [ https://github.com/bwa-mem2/bwa-mem2/releases ]( https://github.com/bwa-mem2/bwa-mem2/releases )
 2. Klik op **bwa-mem2-2.3_x64-linux.tar.bz2**.
-3. verplaats de bestand naar de goede folder
+3. verplaats de bestand naar je eigen werk folder
 ### Stap 2: bwa-mem2 bestand uitpakken 
 1. **Open de terminal:** Navigeer naar de map waar je **BWA-mem2** hebt verplaats.
 2. Gebruik het **tar** commando om het gecomprimeerde bestand te openen:
@@ -13,7 +13,7 @@ Volg deze stappen om de nieuwste versie van ***bwa-mem2*** te downloaden en te i
       tar xf bwa-mem2-2.3_x64-linux.tar.bz2
    ```
 ### Stap 3: bwa-mem2 toevoegen aan je PATH
-Om BWA vanuit elke map in de terminal te kunnen aanroepen, moet je deze stappen volgen
+Om BWA-mem2 vanuit elke map in de terminal te kunnen aanroepen, moet je deze stappen volgen
 1. **Open je bash-configuratie:**
    ```
      nano ~/.bashrc
@@ -37,7 +37,7 @@ Volg deze stappen om de nieuwste versie van ***Samtools*** te downloaden en te i
 ### Stap 1: Samtools downloaden
 1. Ga naar de website [https://www.htslib.org/download/](https://www.htslib.org/download/)
 2. klik op de groene knop **"Samtools-1.23"**
-3. verplaats de bestand naar de goede folder
+3. verplaats de bestand naar je eigen werk folder
 ### Stap 2: Samtools bestand uitpakken en openen
 1. **Open de terminal:** Navigeer naar de map waar je **Samtools** hebt verplaats.
 2. Gebruik het **tar** commando om het gecomprimeerde bestand te openen:
@@ -77,7 +77,7 @@ Volg deze stappen om de nieuwste versie van ***Bcftools*** te downloaden en te i
 ### Stap 1: Bcftools downloaden
 1. Ga naar de website: [https://www.htslib.org/download/](https://www.htslib.org/download/)
 2. klik op de groene knop **"Bcftools-1.23"**
-3. verplaats de bestand naar de goede folder
+3. verplaats de bestand naar je eigen werk folder
 ### Stap 2: Bcftools bestand uipakken en openen:
 1. **Open de terminal:** Navigeer naar de map waar je **Bcftools** hebt verplaats.
 2. Gebruik het **tar** commando om het gecomprimeerde bestand te openen:
