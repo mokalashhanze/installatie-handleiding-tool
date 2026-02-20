@@ -37,9 +37,9 @@ Volg deze stappen om de nieuwste versie van ***Samtools*** te downloaden en te i
 ### Stap 1: Samtools downloaden
 1. Ga naar de website [https://www.htslib.org/download/](https://www.htslib.org/download/)
 2. klik op de groene knop **"Samtools-1.23"**
-3. pak het bestaand uit op je computer
+3. verplaats de bestand naar de goede folder
 ### Stap 2: Samtools bestand uitpakken en openen
-1. **Open de terminal:** Navigeer naar de map waar je **Samtools** hebt gedownload.
+1. **Open de terminal:** Navigeer naar de map waar je **Samtools** hebt verplaats.
 2. Gebruik het **tar** commando om het gecomprimeerde bestand te openen:
    ```
       tar xf samtools-1.23.tar.bz2
@@ -77,9 +77,9 @@ Volg deze stappen om de nieuwste versie van ***Bcftools*** te downloaden en te i
 ### Stap 1: Bcftools downloaden
 1. Ga naar de website: [https://www.htslib.org/download/](https://www.htslib.org/download/)
 2. klik op de groene knop **"Bcftools-1.23"**
-3. pak het bestaand uit op je computer
+3. verplaats de bestand naar de goede folder
 ### Stap 2: Bcftools bestand uipakken en openen:
-1. **Open de terminal:** Navigeer naar de map waar je **Bcftools** hebt gedownload.
+1. **Open de terminal:** Navigeer naar de map waar je **Bcftools** hebt verplaats.
 2. Gebruik het **tar** commando om het gecomprimeerde bestand te openen:
    ```
       tar xf bcftools-1.23.tar.bz2
