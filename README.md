@@ -3,8 +3,8 @@ Groepsopdracht: Markdown installatiehandleiding voor geselecteerde bio-informati
 ## Installatie van bwa-mem2 
 Volg deze stappen om de nieuwste versie van ***bwa-mem2*** te downloaden en te installeren op je Linux-systeem:
 ### Stap 1: bwa-mem2 Downloaden
-1. Ga naar de website: [https://github.com/bwa-mem2/bwa-mem2](https://github.com/bwa-mem2/bwa-mem2)
-2. Klik op de groene knop **"Code"**.
+1. Ga naar de website: [ https://github.com/bwa-mem2/bwa-mem2/releases ]( https://github.com/bwa-mem2/bwa-mem2/releases )
+2. Klik op **bwa-mem2-2.3_x64-linux.tar.bz2**.
 3. Selecteer de optie **"Download ZIP"**.
 4. Pak het bestand uit op je computer.
 ### Stap 2: bwa-mem2 zip openen
