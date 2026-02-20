@@ -5,41 +5,32 @@ Volg deze stappen om de nieuwste versie van ***bwa-mem2*** te downloaden en te i
 ### Stap 1: bwa-mem2 Downloaden
 1. Ga naar de website: [ https://github.com/bwa-mem2/bwa-mem2/releases ]( https://github.com/bwa-mem2/bwa-mem2/releases )
 2. Klik op **bwa-mem2-2.3_x64-linux.tar.bz2**.
-3. Selecteer de optie **"Download ZIP"**.
-4. Pak het bestand uit op je computer.
-### Stap 2: bwa-mem2 zip openen
-1. **Open de terminal:** Navigeer naar de map waar je BWA hebt gedownload.
-2. **Map openen en unzippen::** Gebruik het volgende commando:
+3. verplaats de bestand naar de goede folder
+### Stap 2: bwa-mem2 bestand uitpakken 
+1. **Open de terminal:** Navigeer naar de map waar je **BWA-mem2** hebt verplaats.
+2. Gebruik het **tar** commando om het gecomprimeerde bestand te openen:
    ```
-      unzip cd bwa-mem2-master
-      cd cd bwa-mem2-master
+      tar xf bwa-mem2-2.3_x64-linux.tar.bz2
    ```
-### Stap 3: bwa-mem2 Compileren
-de software bouwen met het `make` commando
-
-1. **Start de installatie:** Voer het volgende commando uit in de terminal:
-   ```
-     make
-   ```
-2. Controleer of de installatie gelukt is door de tool op te roepen:
-   ```  
-      ./bwa-mem2
-   ```
-### Stap 4: bwa-mem2 toevoegen aan je PATH
+### Stap 3: bwa-mem2 toevoegen aan je PATH
 Om BWA vanuit elke map in de terminal te kunnen aanroepen, moet je deze stappen volgen
 1. **Open je bash-configuratie:**
    ```
      nano ~/.bashrc
    ```
-2. **Voeg het pad toe:** vervang */pad/naar/bwa-mem2-master* door de werkelijke locatie op jouw computer
+2. **Voeg het pad toe:** vervang */pad/naar/bwa-mem2-2.3_x64-linux.tar.bz2* door de werkelijke locatie op jouw computer
    ```
-      export PATH="/pad/naar/bwa-mem2-master:$PATH"
+      export PATH="/pad/naar/bwa-mem2-2.3_x64-linux.tar.bz2:$PATH"
    ```
 3. **Opslaan en afsluiten:**
 Druk op Ctrl + O (opslaan), dan Enter, en daarna op Ctrl + X (afsluiten).
 4. **Activeer de wijzigingen:** voer je in de commandline uit:
    ```
       source ~/.bashrc
+   ```
+### Stap 4: Controleer of de installatie gelukt is door de tool op te roepen:
+   ```
+      bwa-mem2
    ```
 ## Installatie van Samtools:
 Volg deze stappen om de nieuwste versie van ***Samtools*** te downloaden en te installeren op je Linux-systeem:
