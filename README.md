@@ -1,6 +1,8 @@
 # Installatie-handleiding-tool
 Groepsopdracht: Markdown installatiehandleiding voor geselecteerde bio-informatica tools (bwa-mem2/SAMtools/BCFtools).
-## Installatie van bwa-mem2 
+## Bwa-mem2 
+Het pakt losse stukjes DNA en zoekt voor elk stukje de juiste plek op een grote kaart van het genoom.
+## Installatie:
 Volg deze stappen om de nieuwste versie van ***bwa-mem2*** te downloaden en te installeren op je Linux-systeem:
 ### Stap 1: bwa-mem2 Downloaden
 1. Ga naar de website: [ https://github.com/bwa-mem2/bwa-mem2/releases ]( https://github.com/bwa-mem2/bwa-mem2/releases )
@@ -34,7 +36,9 @@ Druk op Ctrl + O (opslaan), dan Enter, en daarna op Ctrl + X (afsluiten).
    ```
       bwa-mem2
    ```
-## Installatie van Samtools:
+## Samtools:
+Hij zet alle losse stukjes DNA op de juiste volgorde en ruimt de data netjes op zodat de computer het sneller kan lezen.
+## Installatie:
 Volg deze stappen om de nieuwste versie van ***Samtools*** te downloaden en te installeren op je Linux-systeem:
 ### Stap 1: Samtools downloaden
 1. Ga naar de website [https://www.htslib.org/download/](https://www.htslib.org/download/)
@@ -75,7 +79,9 @@ Druk op Ctrl + O (opslaan), dan Enter, en daarna op Ctrl + X (afsluiten).
    ```
       source ~/.bashrc
    ```
-## Installatie van BCFtools:
+## BCFtools:
+Hij vergelijkt DNA-stukjes om mutaties te laten zien 
+## Installatie:
 Volg deze stappen om de nieuwste versie van ***Bcftools*** te downloaden en te installeren op je Linux-systeem:
 ### Stap 1: Bcftools downloaden
 1. Ga naar de website: [https://www.htslib.org/download/](https://www.htslib.org/download/)
