@@ -1,4 +1,4 @@
-# Istallatie-handleiding-tool
+# Installatie-handleiding-tool
 Groepsopdracht: Markdown installatiehandleiding voor geselecteerde bio-informatica tools (bwa-mem2/SAMtools/BCFtools).
 ## Installatie van bwa-mem2 
 Volg deze stappen om de nieuwste versie van ***bwa-mem2*** te downloaden en te installeren op je Linux-systeem:
