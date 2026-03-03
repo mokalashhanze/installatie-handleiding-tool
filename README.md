@@ -116,3 +116,7 @@ Druk op Ctrl + O (opslaan), dan Enter, en daarna op Ctrl + X (afsluiten).
    ```
       source ~/.bashrc
    ```
+### referenties:
+1. bwa.mem2:[bwa.mem](https://bio-bwa.sourceforge.net/)
+2. samtools
+3. Bcftools
