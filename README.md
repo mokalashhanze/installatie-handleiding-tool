@@ -54,7 +54,7 @@ Volg deze stappen om de nieuwste versie van ***Samtools*** te downloaden en te i
       make
       make install
    ```
-   pass **-/pad/naar/samtools-1.23** naar je eigen werk plek aan
+      pass **-/pad/naar/samtools-1.23** naar je eigen werk plek aan
    2. Controleer of de installatie gelukt is door de tool op te roepen:
    ```  
       ./Samtools
@@ -95,7 +95,7 @@ Volg deze stappen om de nieuwste versie van ***Bcftools*** te downloaden en te i
       make
       make install
    ```
-   pass **/pad/naar/bcftools-1.23** naar je eigen werk plek aan
+      pass **/pad/naar/bcftools-1.23** naar je eigen werk plek aan
    2. Controleer of de installatie gelukt is door de tool op te roepen:
    ```  
       ./Bcftools
