@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="nl">
+    <head>
+        <link href="static/stylesheet.css" rel="stylesheet">
+        <meta charset="UTF-8">
+        <title>BCFtools</title>
+    </head>
+    <body>
+        <div class="border center">
+
+        <a href="index.html" class="link_fix center black">
+            BMF
+        </a>
+
+        <a href="bwa-mem2.html" class="center black link_fix">
+            BWA-mem2
+        </a>
+
+         <a href="samtools.html" class="center black link_fix">
+            samtools
+         </a>
+
+         <a href="bcftools.html" class="center black link_fix current_link">
+            BCFtools
+         </a>
+
+        <a href="contactgegevens.html" class="center black link_fix">
+            contactgegevens
+        </a>
+
+        </div>
+
+    <div>
+        <p class="paragraph_text">
+            BCFtools V1.23: (
+            <a
+                href="https://www.htslib.org/download/">https://www.htslib.org/download/
+        </a>
+            )
+            <br><br>
+3.1 mpileup: een algoritme om de ‘genotype likelihoods’ te berekenen en hier een VCF van te maken.
+<br><br>
+            Relevante tweaks:
+            <br>
+-r, --regions CHR|CHR:POS|CHR:FROM-TO|CHR:FROM-[,…].
+Deze tweak zorgt ervoor dat je de tool in specifieke regio’s van het referentie DNA kan laten werken,
+            wat handig is om specifieker te zoeken naar matches.
+<br><br>
+3.2 call: BCFtools call is een algoritme dat ‘variant calling’ (het vergelijken van een genoom met een referentiegenoom en de verschillen er uithalen) doet.
+            Met behulp van de eerder berekende genotype likelihoods evalueert dit algoritme de meest waarschijnlijke variant van het genetische materiaal.
+            <br><br>
+De input van BCFtools is een BAM-bestand
+            <br>
+De output van BCFtools is een VCF-bestand
+
+        </p>
+    </div>
+    </body>
+</html>
