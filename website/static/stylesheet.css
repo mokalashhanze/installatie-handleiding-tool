@@ -43,3 +43,9 @@ ul li.right {
 ul li.color {
     background-color: var(--current-page-button-color);
 }
+
+.paragraph_text {
+    margin-left: 16px;
+    margin-right: 32px;
+    text-align: left;
+}
