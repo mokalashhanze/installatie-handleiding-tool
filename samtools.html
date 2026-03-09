@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="nl">
+    <head>
+        <link href="static/stylesheet.css" rel="stylesheet">
+        <meta charset="UTF-8">
+        <title>samtools</title>
+    </head>
+
+    <body style="background-color: var(--background-color)">
+    <ul>
+        <li><a href="index.html">BMF</a></li>
+        <li><a href="bwa-mem2.html">BWA-mem2</a></li>
+        <li class="color"><a class="color-hover" href="samtools.html">Samtools</a></li>
+        <li><a href="bcftools.html">BCFtools</a></li>
+        <li><a href="contactgegevens.html">Contact</a></li>
+    </ul>
+
+    <div>
+        <p class="paragraph_text">
+        Samtools V1.23: (
+            <a
+                href="https://www.htslib.org/download/">https://www.htslib.org/download/
+        </a>
+            )
+            <br><br>
+SAMtools is een computerprogramma dat onderzoekers helpt om 
+        enorme hoeveelheden DNA-gegevens te verwerken.            
+Na BWA-mem2 krijg je een SAM bestand. Dit is een groot tekstbestand,
+            samtools verwerkt dit dan naar een BAM-bestand om ruimte te besparen en rekenkracht.
+Doormiddel van “samtools sort” wordt de data in het BAM-bestand gesorteerd op hun positie in het genoom,
+            BWA-mem2 doet dit niet zelf.
+Daarna gaan wij dan met “samtools markdup” duplicaten markeren die dan genegeerd worden door BCFTools.
+        </p>
+        <p>
+        <a href="https://pmc.ncbi.nlm.nih.gov" target="_blank">https://pmc.ncbi.nlm.nih.gov</a>. 
+        Dit wetenschappelijke artikel beschrijft de updates in samtools
+        </p>
+    </div>
+    </body>
+</html>

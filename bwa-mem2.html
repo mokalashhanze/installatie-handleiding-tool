@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="nl">
+    <head>
+        <link href="static/stylesheet.css" rel="stylesheet">
+        <meta charset="UTF-8">
+        <title>BWA-mem2</title>
+    </head>
+
+    <body style="background-color: var(--background-color)">
+    <ul>
+        <li><a href="index.html">BMF</a></li>
+        <li class="color"><a class="color-hover" href="bwa-mem2.html">BWA-mem2</a></li>
+        <li><a href="samtools.html">Samtools</a></li>
+        <li><a href="bcftools.html">BCFtools</a></li>
+        <li><a href="contactgegevens.html">Contact</a></li>
+    </ul>
+
+    <div>
+        <p class="paragraph_text">
+            BWA-mem2 (Burrows-Wheeler Aligner) V2.3: (
+            <a
+                    href="https://github.com/bwa-mem2/bwa-mem2/releases">https://github.com/bwa-mem2/bwa-mem2/releases
+            </a>
+            )
+            <br><br>
+1.1 Indexeren: Het maakt een soort "inhoudsopgave" van het grote voorbeeld-DNA (referentie), zodat het later razendsnel informatie kan terugvinden.
+            <br>
+1.2 Aligneren: Het pakt miljoenen losse DNA-stukjes en zoekt voor elk stukje de juiste plek.
+BWA-MEM2 heeft 2 commands die wij gebruiken;
+            <br><br>
+1.	bwa-mem2 -p [outputfilenaam] index [p]
+bwa-mem2 index bouwt een FM-index van een referentie-genoom (FASTA-bestand) wat nodig is voor snelle read mapping met BWA-MEM2.
+De enige “knop” waar je hierbij aan kan draaien is het -p. Hiermee kan je de index file naam veranderen bijvoorbeeld;
+bwa-mem2 -p hg38 index ref.fasta
+Hiermee wordt dan de index file die gemaakt wordt hg38 genoemd. Al wordt er geen -p aangegeven krijgt de output de naam van het ref.fasta bestand.
+<br><br>
+2.	bwa-mem2 -t [INT] -k [INT] -w [INT] -c [INT] ref.fa(output index) reads.fq(uit sequencer)  > aln.sam (output bestand)
+bwa-mem2 mem is het alignement command dat reads mapt tegen een FM-index bestand die we met de vorige stap hebben gemaakt en een SAM output genereert.
+-t geeft aan hoeveel threads het programma mag gebruiken van de computer, default 1.
+-k geeft aan hoeveel nucleotide moeten overeenkomen achter elkaar om een match te zijn, default 19
+            <br><br>
+-w bepaalt hoe ver uit elkaar seeds (matches) mogen liggen om aan elkaar gekoppeld te worden tijdens het vormen van alignments,
+        zie figuur 3 het figuur hieronder.
+        Grotere -w verhoogt sensitiviteit voor verspreide matches (handig bij grote inserties/deleties of foutrijke reads), default 100
+
+            <img src="pictures/seeds_bwa.png" alt="description picture bwa seeds">
+            <br>
+Figuur 3
+            <br>
+-c limiteert het aantal gerapporteerde hits per read in BWA MEM2, default 500.
+        </p>
+    </div>
+    </body>
+</html>
