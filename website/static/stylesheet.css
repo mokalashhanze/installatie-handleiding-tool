@@ -1,8 +1,8 @@
 :root {
-    --current-page-button-color: #28536c;  /* default: green */
-    --current-page-button-hover-color: color-mix(in srgb, var(--current-page-button-color) 75%, white 20%);
+    --current-page-button-color: #28536c;  /* default: 28536c */
+    --current-page-button-hover-color: color-mix(in srgb, var(--current-page-button-color) 85%, white 15%);
 
-    --current-page-bar-color: #353232; /* default: 333333 */
+    --current-page-bar-color: #353232; /* default: 353232 */
     --current-page-bar-color-dark: color-mix(in srgb, var(--current-page-bar-color) 75%, white 25%);
 
     --background-color: #D3D3D3
