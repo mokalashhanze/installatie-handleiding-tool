@@ -8,12 +8,12 @@
 
     <body style="background-color: var(--background-color)">
     <ul>
-        <li><a href="bmf.html">BMF</a></li>
-        <li class="color"><a class="color-hover" href="bwa-mem2.html">BWA-mem2</a></li>
-        <li><a href="samtools.html">Samtools</a></li>
-        <li><a href="bcftools.html">BCFtools</a></li>
-        <li><a href="index.html">About</a></li>
-        <li><a href="contactgegevens.html">Contact</a></li>
+        <li><a href="/bmf">BMF</a></li>
+        <li class="color"><a class="color-hover" href="/bwa-mem2">BWA-mem2</a></li>
+        <li><a href="/samtools">Samtools</a></li>
+        <li><a href="/bcftools">BCFtools</a></li>
+        <li><a href="/">About</a></li>
+        <li><a href="/contacten">Contact</a></li>
     </ul>
 
     <div>
@@ -32,18 +32,14 @@
             <br><br>
             bwa-mem2 index bouwt een index op van het een referentie-genoom (menselijke genoom voor onze website) dit wordt gedaan door middel van een FASTA-referentiebestand.
             <br>
-<<<<<<< HEAD
             Dit is het enigste dat nodig is om DNA data daarna snel te mappen met BWA-mem2. De enige dingen die aan dit commando veranderd kunnen worden is de outputfilenaam en de inputfilenaam.
             De gebruiker kan hier niet aanzitten, want wij hebben zelf al de index gemaakt (insert link naar menselijke genoom die wij gebruiken).
             <br><br>
-            De tweede stap is het mappen van jouw DNA-data tegenover het referentie-genoom index, die met de vorige stap gemaakt is.
-=======
-Figuur 2
->>>>>>> dbe4d5e52ec02cfe7a0a7ab7ffdc9718e343dfa0
+            Figuur 2
             <br>
             Hiervoor moet je een FASTQ-bestand hebben, dit bestand bevat een header/kop die de sequencer heeft gemaakt. Daarna is de DNA-sequentie voor het stukje DNA, hierna komt een "+" om de DNA-sequentie te scheiden van de kwaliteit van het DNA. Daarna komt dan de kwaliteit van het DNA ieder character staat voor een andere kwaliteit. Zo een FASTQ-bestand bevat dan miljoenen verschillende van dit soort koppen met DNA en de DNA zijn kwaliteit scoren.
-            <br>
-            <img src="pictures/fastq.png" alt="Een foto die laat zien hoe een FASTQ bestand eruit ziet." width="600" height="100">
+            <br><br>
+            <img src="../static/pictures/fastq.png" alt="Een foto die laat zien hoe een FASTQ bestand eruit ziet." width="600" height="100">
             <br>
             Figuur 1
             <br><br>
@@ -57,7 +53,7 @@ Figuur 2
             <br><br>
             -w bepaalt hoe ver uit elkaar seeds (matches) mogen liggen om aan elkaar gekoppeld te worden tijdens het vormen van alignments, zie figuur 3 het figuur hieronder. Grotere -w verhoogt sensitiviteit voor verspreide matches (handig bij grote inserties/deleties of foutrijke reads), default 100 description picture bwa seeds. Hoe hoger de -w hoe langer het duurt tot dat het programma klaar is.
             <br><br>
-            <img src="pictures/seeds_bwa.png" alt="Een foto die laat zien hoe seeds werken">
+            <img src="../static/pictures/seeds_bwa.png" alt="Een foto die laat zien hoe seeds werken">
             <br>
             Figuur 2
             <br><br>
