@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="nl">
+    <head>
+        <link href="static/stylesheet.css" rel="stylesheet">
+        <meta charset="UTF-8">
+        <title>samtools</title>
+    </head>
+
+    <body style="background-color: var(--background-color)">
+    <ul>
+        <li><a href="/bmf">BMF</a></li>
+        <li><a href="/bwa-mem2">BWA-mem2</a></li>
+        <li class="color"><a class="color-hover" href="/samtools">Samtools</a></li>
+        <li><a href="/bcftools">BCFtools</a></li>
+        <li><a href="/">About</a></li>
+        <li><a href="/contacten">Contact</a></li>
+    </ul>
+
+    <div>
+        <h1>
+            Samtools V1.23:
+        </h1>
+        <p class="paragraph_text">
+         (
+            <a
+                href="https://www.htslib.org/download/"> (https://www.htslib.org/download/)
+        </a>
+            )
+        <br>
+        SAMtools is een computerprogramma dat onderzoekers helpt om 
+        <br>
+        enorme hoeveelheden DNA-gegevens te verwerken.
+        <br>            
+        Na BWA-mem2 krijg je een SAM bestand. Dit is een groot tekstbestand,
+        <br>
+        samtools verwerkt dit dan naar een BAM-bestand om ruimte te besparen en rekenkracht.
+        <br>
+        Doormiddel van “samtools sort” wordt de data in het BAM-bestand gesorteerd
+        <br> 
+        op hun positie in het genoom,BWA-mem2 doet dit niet zelf.
+        <br>
+        Daarna gaan wij dan met “samtools markdup” duplicaten markeren die dan genegeerd worden
+        <br> 
+        door BCFTools.
+        <br>
+        </p>
+        <p>
+        <a 
+            href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7931819/" >https://pmc.ncbi.nlm.nih.gov/articles/PMC7931819/
+        </a>. 
+            Dit wetenschappelijke artikel beschrijft de updates in samtools
+        </p>
+        <h2>
+             Input & ouput  
+        </h2>
+        <h3>
+            Input: 
+        </h3>
+        <p>
+            Sam bestaand(tekst bestaand leesbaar voor mensen)
+        </p>
+            <br><br>
+                <img src="../static/pictures/Sam.png" alt="Sam bestaand">
+            <br>
+            <br>
+Figuur 3: Sam bestaand
+            <br>            
+        <h3>
+            Output:
+        </h3>
+        <p>
+            Bam bestaand (binaire bestaand alleen leesbaar voor de computer)
+        </p>
+    </div>
+    </body>
+</html>

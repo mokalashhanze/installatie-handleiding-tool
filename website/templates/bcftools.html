@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="nl">
+    <head>
+        <link href="../static/stylesheet.css" rel="stylesheet">
+        <meta charset="UTF-8">
+        <title>BCFtools</title>
+    </head>
+
+    <body style="background-color: var(--background-color)">
+    <ul>
+        <li><a href="/bmf">BMF</a></li>
+        <li><a href="/bwa-mem2">BWA-mem2</a></li>
+        <li><a href="/samtools">Samtools</a></li>
+        <li class="color"><a class="color-hover" href="/bcftools">BCFtools</a></li>
+        <li><a href="/">About</a></li>
+        <li><a href="/contacten">Contact</a></li>
+    </ul>
+
+    <div>
+        <p class="paragraph_text">
+            BCFtools V1.23: (
+            <a href="https://www.htslib.org/download/">https://www.htslib.org/download/</a>
+            )
+            <br><br>
+Bcftools is een tool die vooral gebruikt wordt om VCF en BCF bestanden te manipuleren en analyseren.
+            In het geval van onze pijplijn werken wij met een BAM-bestand als inputbestand en een VCF-bestand als outputbestand.
+            <br><br>
+            Hieronder staan de argumenten die wij met BCFtools gaan gebruiken.
+            <br><br>
+Het eerste argument is mpileup: een algoritme om de ‘genotype likelihoods’ (hoe waarschijnlijk een specifiek genotype is gebaseerd op de beschikbare data)
+            te berekenen en van deze berekeningen een VCF maakt.
+            <br><br>
+            De tweak die bij dit argument toe te passen is:
+            <br><br>
+            -r, --regions CHR|CHR:POS|CHR:FROM-TO|CHR:FROM-[,…].
+            <br>
+            Deze tweak zorgt ervoor dat je de tool in specifieke regio’s van het referentie DNA kan laten werken,
+            wat handig is om specifieker te zoeken naar matches
+            <br><br>
+            het tweede argument van deze tool is BCFtools call: BCFtools call is een algoritme dat ‘variant calling’ (het vergelijken van een genoom met een referentiegenoom en de verschillen identificeren) doet.
+            Met behulp van de eerder berekende genotype likelihoods evalueert dit algoritme de meest waarschijnlijke variant van het genetische materiaal.
+            <br><br><br>
+            de output van bcftools is een VCF-bestand, zie foto hieronder.
+            <br><br>
+            <img src="../static/pictures/vcf_file.jpg" alt="example vcf file" height="300" width="450">
+            <br><br>
+            Afbeelding van
+            <a
+                href="https://commons.wikimedia.org/wiki/File:Vcf-format.jpg">
+            https://commons.wikimedia.org/wiki/File:Vcf-format.jpg
+        </a>
+            , voorbeeld van een VCF-bestand.
+            <br><br>
+            In de header van een VCF-bestand staat de metadata
+            <br><br>
+            Verder bevat een VCF-bestand informatie over:
+            <br><br>
+            welk chromosoom een mutatie zit (#chrom)
+positie op het referentiegenoom (pos) <br>
+ unieke identificatie (ID) <br>
+ referentie base (REF) <br>
+ alternatieve base (ALT) <br>
+ kwaliteitsscore (QUAL), die de betrouwbaarheid van de variant call geeft <br>
+status van de variant, wat ‘pass’ is als het aan de kwaliteitsfilters voldoet of de naam geeft van het filter waar hij op faalde (FILTER) <br>
+aanvullende informatie, gescheiden door ‘;’(INFO) <br>
+de structuur van de data in de monsterkolommen (FORMAT) <br>
+en een of meerdere kolommen met data per monster, zoals genotype in de vorm van 0/0, 0/1 of 1/1 voor recessief homozygoot, heterozygoot en dominant homozygoot
+            <br><br><br>
+            Voor meer informatie over bcftools, raadpleeg
+
+            <a
+            href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7931819/ ">https://pmc.ncbi.nlm.nih.gov/articles/PMC7931819/
+            </a> en
+            
+            <a href="https://www.htslib.org/doc/1.0/bcftools.html ">
+                https://www.htslib.org/doc/1.0/bcftools.html</a>
+
+        </p>
+    </div>
+    </body>
+</html>
