@@ -2,7 +2,7 @@
 
 {% block content %}
 
-    <div style="display: flex; justify-content: space-between; gap: 20px;">
+    <div style="display: flex; max-width: 200ch; justify-content: space-between; gap: 20px;">
         <div style="flex: 1;">
         <h1>
             Samtools V1.23:
@@ -15,17 +15,11 @@
             )
         <br>
         SAMtools is een computerprogramma dat onderzoekers helpt om 
-        <br>
         enorme hoeveelheden DNA-gegevens te verwerken.
-        <br>            
         Na BWA-mem2 krijg je een SAM bestand. Dit is een groot tekstbestand,
-        <br>
         samtools verwerkt dit dan naar een BAM-bestand om ruimte te besparen en rekenkracht.
-        <br>
         Doormiddel van “samtools sort” wordt de data in het BAM-bestand gesorteerd
-        <br> 
         op hun positie in het genoom,BWA-mem2 doet dit niet zelf.
-        <br>
         Daarna gaan wij dan met “samtools markdup” duplicaten markeren die dan genegeerd worden door BCFTools.
         <br>
         </p>
@@ -59,7 +53,6 @@
         <br>
         <br>
         2. Alignment-sectie: Bevat de eigenlijke data van de reads, met 11 verplichte 
-        <br>
         kolommen (zoals de naam van de read, de positie op het genoom en de kwaliteit).
         <br>
         <h3>
