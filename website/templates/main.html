@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="static/stylesheet.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+    <body style="background-color: var(--background-color)">
+
+    {% set pages = [
+    {'href':'/','label':'About'},
+    {'href':'/bmf','label':'BMF'},
+    {'href':'/bwa-mem2','label':'BWA-mem2'},
+    {'href':'/samtools','label':'Samtools'},
+    {'href':'/bcftools','label':'BCFtools'},
+    {'href':'/contacten','label':'Contact'}
+  ] %}
+
+    <ul>
+        {% for item in pages %}
+            <li class="{{ 'color' if request.path == item.href else ''}}">
+                  <a class="{{ 'color-hover' if request.path == item.href else ''}}" href="{{ item.href }}">{{ item.label }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    {% block content %}
+    {% endblock %}
+
+    </body>
+</html>
