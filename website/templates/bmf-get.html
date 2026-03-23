@@ -1,20 +1,6 @@
-<!DOCTYPE html>
-<html lang="nl">
-    <head>
-        <link href="static/stylesheet.css" rel="stylesheet">
-        <meta charset="UTF-8">
-        <title>BMF</title>
-    </head>
+{% extends "main.html" %}
 
-    <body style="background-color: var(--background-color)">
-    <ul>
-        <li class="color"><a class="color-hover" href="/bmf">BMF</a></li>
-        <li><a href="/bwa-mem2">BWA-mem2</a></li>
-        <li><a href="/samtools">Samtools</a></li>
-        <li><a href="/bcftools">BCFtools</a></li>
-        <li><a href="/">About</a></li>
-        <li><a href="/contacten">Contact</a></li>
-    </ul>
+{% block content %}
 
     <p class="paragraph_text">
         WIP
@@ -46,5 +32,4 @@
             <button type="submit" name="submit">Submit</button>
     </form>
 
-    </body>
-</html>
+{% endblock %}

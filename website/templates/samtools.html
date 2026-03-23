@@ -1,20 +1,6 @@
-<!DOCTYPE html>
-<html lang="nl">
-    <head>
-        <link href="static/stylesheet.css" rel="stylesheet">
-        <meta charset="UTF-8">
-        <title>samtools</title>
-    </head>
+{% extends "main.html" %}
 
-    <body style="background-color: var(--background-color)">
-    <ul>
-        <li><a href="/bmf">BMF</a></li>
-        <li><a href="/bwa-mem2">BWA-mem2</a></li>
-        <li class="color"><a class="color-hover" href="/samtools">Samtools</a></li>
-        <li><a href="/bcftools">BCFtools</a></li>
-        <li><a href="/">About</a></li>
-        <li><a href="/contacten">Contact</a></li>
-    </ul>
+{% block content %}
 
     <div>
         <h1>
@@ -72,5 +58,4 @@ Figuur 3: Sam bestaand
             Bam bestaand (binaire bestaand alleen leesbaar voor de computer)
         </p>
     </div>
-    </body>
-</html>
+{% endblock %}
