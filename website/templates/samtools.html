@@ -2,7 +2,8 @@
 
 {% block content %}
 
-    <div>
+    <div style="display: flex; justify-content: space-between; gap: 20px;">
+        <div style="flex: 1;">
         <h1>
             Samtools V1.23:
         </h1>
@@ -25,37 +26,96 @@
         <br> 
         op hun positie in het genoom,BWA-mem2 doet dit niet zelf.
         <br>
-        Daarna gaan wij dan met “samtools markdup” duplicaten markeren die dan genegeerd worden
-        <br> 
-        door BCFTools.
+        Daarna gaan wij dan met “samtools markdup” duplicaten markeren die dan genegeerd worden door BCFTools.
         <br>
         </p>
         <p>
         <a 
             href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7931819/" >https://pmc.ncbi.nlm.nih.gov/articles/PMC7931819/
         </a>. 
-            Dit wetenschappelijke artikel beschrijft de updates in samtools
         </p>
+    
+            Dit wetenschappelijke artikel beschrijft de updates in samtools
+
         <h2>
              Input & ouput  
         </h2>
         <h3>
             Input: 
         </h3>
-        <p>
+        <h4>
             Sam bestaand(tekst bestaand leesbaar voor mensen)
-        </p>
-            <br><br>
-                <img src="../static/pictures/Sam.png" alt="Sam bestaand">
-            <br>
-            <br>
-Figuur 3: Sam bestaand
-            <br>            
+        </h4>   
+        <br>
+        SAM staat voor Sequence Alignment/Map-formaat.
+        <br>
+        Het is een plat tekstbestand met kolommen die gescheiden zijn door tabs.
+        <br>
+        <br>
+        Het bestaat uit twee onderdelen:
+        <br>
+        <br>
+        1. Header: Begint met een @ en bevat metadata (zoals de versie en de namen van de chromosomen).
+        <br>
+        <br>
+        2. Alignment-sectie: Bevat de eigenlijke data van de reads, met 11 verplichte 
+        <br>
+        kolommen (zoals de naam van de read, de positie op het genoom en de kwaliteit).
+        <br>
         <h3>
             Output:
         </h3>
-        <p>
+        <h4>
             Bam bestaand (binaire bestaand alleen leesbaar voor de computer)
-        </p>
+        </h4>
+        <br>
+        Een BAM-bestand (Binary Alignment Map) is de binaire versie van een SAM-bestand.
+        <br>
+        Het is veel kleiner dan een SAM-bestand (vaak 75% kleiner)
+        <br>
+        Daarom kunnen programma's zoals Samtools er veel sneller informatie uit vissen.
+        <br>
+        Als je een BAM-bestand opent, zie je alleen "gekke tekens". 
+        <br>
+        Je hebt altijd software nodig om de inhoud te zien.
+        <br>
+        </div>
+        <div style="flex: 1;">
+                        <br><br>
+                <img src="../static/pictures//Sam.png" alt="Sam bestaand">
+            <br>
+            <br>
+Figuur 3:
+        <a
+                href="https://miro.medium.com/v2/resize:fit:4800/format:webp/0*CePvh8XpBcbC1HjZ.png"> (Sam_bestaand/)
+        </a>
+            <br>
+            <br>
+            Elke uitlijningslijn heeft 11 verplichte velden voor essentiële uitlijningsinformatie,
+            zoals de positie van de kaart, en een variabel aantal optionele velden voor flexibele of alignerspecifieke informatie: 
+            <br>
+            <br>
+            1. Lees Naam
+            <br>
+2. SAM-vlag<br>
+3. chromosoom <br>
+4. positie (index) <br>
+5. MAPQ (mapping quality — beschrijft de uitlijning, 0=niet-uniek, >10 waarschijnlijk uniek)<br>
+6. CIGAR-string (beschrijft de positie van invoegingen/verwijderingen/overeenkomsten in de uitlijning)<br>
+7. Naam van de partner (informatie over het partnerpaar voor paired-end sequencing, vaak "=")<br>
+8. Positie van de partner (informatie over het partnerpaar)<br>
+9. Sjabloonlengte (altijd nul )<br>
+10. Leesvolgorde<br>
+11. Leeskwaliteit<br>
+            <br>
+            <br>
+            <br>
+            <h5>
+                Bronvermelding:
+            </h5>   
+            <a
+         href= "https://medium.com/@shilparaopradeep/samtools-guide-learning-how-to-filter-and-manipulate-with-sam-bam-files-2c28b25d29e8"> (sam_info_bron)
+         </a>
+        </div>
     </div>
 {% endblock %}
