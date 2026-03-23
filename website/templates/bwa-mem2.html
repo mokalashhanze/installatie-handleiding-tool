@@ -2,33 +2,28 @@
 
 {% block content %}
 
-    <div>
+    <div style="display: flex; max-width: 200ch; justify-content: space-between; gap: 20px;">
+        <div style="flex: 1;">
         <p class="paragraph_text">
-            BWA-mem2 (Burrows-Wheeler Aligner) V2.3: (
+            <h1>
+            BWA-mem2 (Burrows-Wheeler Aligner) V2.3:
+            </h1> 
+            (
             <a
                     href="https://github.com/bwa-mem2/bwa-mem2/releases">https://github.com/bwa-mem2/bwa-mem2/releases
             </a>
             )
             <br><br>
             BWA-mem2 is de methode die op onze website wordt gebruikt om lose DNA-stukjes tegen een referentiegenoom uit te mappen.
-            <br>
             De eerste stap hierbij is het indexeren van het menselijk referentie genoom.
             <br><br>
             bwa-mem2 -p [outputfilenaam] index [inputfilenaam]
             <br><br>
             bwa-mem2 index bouwt een index op van het een referentie-genoom (menselijke genoom voor onze website) dit wordt gedaan door middel van een FASTA-referentiebestand.
-            <br>
+            <br><br>
             Dit is het enigste dat nodig is om DNA data daarna snel te mappen met BWA-mem2. De enige dingen die aan dit commando veranderd kunnen worden is de outputfilenaam en de inputfilenaam.
             De gebruiker kan hier niet aanzitten, want wij hebben zelf al de index gemaakt (insert link naar menselijke genoom die wij gebruiken).
-            <br><br>
-            Figuur 2
-            <br>
-            Hiervoor moet je een FASTQ-bestand hebben, dit bestand bevat een header/kop die de sequencer heeft gemaakt. Daarna is de DNA-sequentie voor het stukje DNA, hierna komt een "+" om de DNA-sequentie te scheiden van de kwaliteit van het DNA. Daarna komt dan de kwaliteit van het DNA ieder character staat voor een andere kwaliteit. Zo een FASTQ-bestand bevat dan miljoenen verschillende van dit soort koppen met DNA en de DNA zijn kwaliteit scoren.
-            <br><br>
-            <img src="../static/pictures/fastq.png" alt="Een foto die laat zien hoe een FASTQ bestand eruit ziet." width="600" height="100">
-            <br>
-            Figuur 1
-            <br><br>
+            <br><br><br><br><br>
             bwa-mem2 -t [INT] -k [INT] -w [INT] -c [INT] ref.fa(referentie-genoom) reads.fq(DNA-data) > aln.sam (output-bestand)
             <br><br>
             Dit commando is wat het dan echt gaat doen. De gebruiker kan dan ook voor dit commando aangeven wat voor dingen zij willen.
@@ -39,6 +34,18 @@
             <br><br>
             -w bepaalt hoe ver uit elkaar seeds (matches) mogen liggen om aan elkaar gekoppeld te worden tijdens het vormen van alignments, zie figuur 3 het figuur hieronder. Grotere -w verhoogt sensitiviteit voor verspreide matches (handig bij grote inserties/deleties of foutrijke reads), default 100 description picture bwa seeds. Hoe hoger de -w hoe langer het duurt tot dat het programma klaar is.
             <br><br>
+                </div>
+                <div style="flex: 1;">
+            <br>
+            <img src="../static/pictures/fastq.png" alt="Een foto die laat zien hoe een FASTQ bestand eruit ziet." width="600" height="100">
+            <br>
+            Figuur 1:
+            <br>
+            Hiervoor moet je een FASTQ-bestand hebben, dit bestand bevat een header/kop die de sequencer heeft gemaakt.
+            Daarna is de DNA-sequentie voor het stukje DNA, hierna komt een "+" om de DNA-sequentie te scheiden van de kwaliteit van het DNA.
+            Daarna komt dan de kwaliteit van het DNA ieder character staat voor een andere kwaliteit. 
+            Zo een FASTQ-bestand bevat dan miljoenen verschillende van dit soort koppen met DNA en de DNA zijn kwaliteit scoren.
+            <br><br><br><br><br><br><br><br><br><br><br>
             <img src="../static/pictures/seeds_bwa.png" alt="Een foto die laat zien hoe seeds werken">
             <br>
             Figuur 2
