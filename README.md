@@ -6,7 +6,7 @@ Na deze stappen kan er worden gekeken of er bijvoorbeeld mutaties zijn in het ge
 Welke specifieke mutaties heeft een individu ten opzichte van het menselijk referentiegenoom? 
 In welke genen zitten de mutaties?  
 # Installatie-handleiding-tool
-Groepsopdracht: Markdown installatiehandleiding voor geselecteerde bio-informatica tools (bwa-mem2/SAMtools/BCFtools).
+Markdown installatiehandleiding voor geselecteerde bio-informatica tools (bwa-mem2/SAMtools/BCFtools).
 ## Bwa-mem2 
 Het pakt losse stukjes DNA en zoekt voor elk stukje de juiste plek op een grote kaart van het genoom.
 ## Installatie:
