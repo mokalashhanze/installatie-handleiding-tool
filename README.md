@@ -3,8 +3,8 @@
 Moderne DNA-sequencers genereren enorm veel ruwe data ("raw reads", van 300 kilobases tot enkele terabases per run)1. Deze data zijn voor mensen moeilijk te gebruiken door de grote hoeveelheid en doordat er niet altijd bekend is waar deze data zich in het genoom bevindt. Om de aanwezigheid van mutaties te bepalen is dat wel nodige informatie. Met onze eerste tool BWA-mem2 (https://github.com/bwa-mem2/bwa-mem2) gaan wij de data mappen/uitlijnen tegenover een referentiegenoom zoals het menselijk genoom. Hiermee kunnen we achterhalen waar de DNA-sequenties vandaan komen. Daarna verwerken we de uitlijning van BWA met Samtools (https://www.htslib.org/download/) die maakt van een groot tekstbestand (SAM) een klein computerbestand (BAM) om ruimte te besparen. Hierna gaan we met BCFTools (https://www.htslib.org/download/) kijken of er mutaties zijn opgetreden.  
 Na deze stappen kan er worden gekeken of er bijvoorbeeld mutaties zijn in het genoom van een patiënt.
 ## Onderzoeksvraag: 
-Welke specifieke mutaties heeft een individu ten opzichte van het menselijk referentiegenoom? 
-In welke genen zitten de mutaties?  
+* 1.Welke specifieke mutaties heeft een individu ten opzichte van het menselijk referentiegenoom? 
+* 2.In welke genen zitten de mutaties?  
 ## Benodigdheden: 
 ### 1.Software: 
 * 1.1 BWA-mem2 V2.3: https://github.com/bwa-mem2/bwa-mem2/releases 
