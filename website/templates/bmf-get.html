@@ -11,22 +11,22 @@
         <br><br>
             Upload hier jouw FASTQ-bestand:
         <br>
-            <input type="file" name="fastq_bestand" placeholder="FASTQ-bestand" accept=".fastq, .fq">
+            <input type="file" name="fastq_bestand" accept=".fastq, .fq">
         <br>
         <br>
             Minimaal aantal nucleotiden die moeten overeenkomen voor een match(default is 19, -k):
         <br>
-            <input type="number" min="10" max="2000" step="1" value="19" name="nucleotiden_achter_elkaar" size="4">
+            <input type="number" min="10" max="2000" step="1" value="19" name="nucleotiden_achter_elkaar">
         <br>
         <br>
             Afstand tussen matches (default is 100, -w):
         <br>
-            <input type="number" min="50" max="500" step="1" value="100" name="afstand_matches" size="4">
+            <input type="number" min="50" max="500" step="1" value="100" name="afstand_matches">
         <br>
         <br>
             Maximaal aantal keer zelfde match gerapporteerd (default is 500, -c):
         <br>
-            <input type="number" min="1" max="1500" step="1" value="500" name="maximaal_keer_gerapporteerd" size="4">
+            <input type="number" min="1" max="1500" step="1" value="500" name="maximaal_keer_gerapporteerd">
         <br>
         <br>
             <button type="submit" name="submit">Submit</button>
