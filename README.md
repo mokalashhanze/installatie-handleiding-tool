@@ -7,11 +7,13 @@ Welke specifieke mutaties heeft een individu ten opzichte van het menselijk refe
 In welke genen zitten de mutaties?  
 ## Benodigdheden: 
 ### 1.Software: 
-1.1BWA-mem2 V2.3: https://github.com/bwa-mem2/bwa-mem2/releases 
-1.2Samtools V1.23: https://www.htslib.org/download/ 
-1.3BCFtools V1.23: https://www.htslib.org/download/ 
-### Data: 
+1.1 BWA-mem2 V2.3: https://github.com/bwa-mem2/bwa-mem2/releases 
+1.2 Samtools V1.23: https://www.htslib.org/download/ 
+1.3 BCFtools V1.23: https://www.htslib.org/download/ 
+### 2.Data:
 Raw FASTQ files (reads) en een Human Reference Genome
+### 3.Hardware:
+Linux-omgeving (schoolcomputers)  
 # Installatie-handleiding-tool
 Markdown installatiehandleiding voor geselecteerde bio-informatica tools (bwa-mem2/SAMtools/BCFtools).
 ## Bwa-mem2 
