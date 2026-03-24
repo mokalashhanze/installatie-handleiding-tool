@@ -2,9 +2,16 @@
 
 {% block content %}
 
-    <p class="paragraph_text">
-        WIP
-    </p>
+
+    {% if method == 'GET' %}
+        <p class="paragraph_text">
+            {% if fastq_bestand %}
+                Wrong file, only fastq or fq files accepted! Your file: {{ fastq_bestand }}
+            {% endif %}
+            {% if k and not fastq_bestand %}
+                No file, upload a file!
+            {% endif %}
+        </p>
 
     <form action="/bmf" method="post" class="paragraph_text">
             BWA-mem2
@@ -31,5 +38,18 @@
         <br>
             <button type="submit" name="submit">Submit</button>
     </form>
+    {% endif %}
 
+    {% if method == 'POST' %}
+    <br><br>
+    <div class="paragraph_text">
+        fastq-bestand {{ fastq_bestand }}
+        <br>
+        nucleotiden achter elkaar {{ k }}
+        <br>
+        afstand matches {{ w }}
+        <br>
+        maximaal keer gerapporteerd {{ c }}
+    </div>
+    {% endif %}
 {% endblock %}
