@@ -8,7 +8,7 @@ In welke genen zitten de mutaties?
 ## Benodigdheden: 
 ### 1.Software: 
 1.1 BWA-mem2 V2.3: https://github.com/bwa-mem2/bwa-mem2/releases 
-1. 2 Samtools V1.23: https://www.htslib.org/download/ 
+1.2 Samtools V1.23: https://www.htslib.org/download/ 
 1.3 BCFtools V1.23: https://www.htslib.org/download/ 
 ### Data: 
 Raw FASTQ files (reads) en een Human Reference Genome
