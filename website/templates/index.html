@@ -2,25 +2,26 @@
 
 {% block content %}
 
-    <p class="paragraph_text">
+        <p class="paragraph_text">
+        <h1>
+
+        
         welkom bij onze website!
         <br>
         gebruik het menu hierboven om te navigeren.
-    </p>
+        </p>
+        </h1>
+        <div style="display: flex; max-width: 200ch; justify-content: space-between; gap: 20px;">
+        <div style="flex: 1;">
     <h1> 
         pijplijn
     </h1>
     <br> 
         Moderne DNA-scanners maken enorme hoeveelheden ruwe data die onleesbaar zijn.
-    <br> 
          Om foutjes (mutaties) in het DNA te vinden, gebruiken we drie stappen:
-    <br> 
         Eerst bepaalt BWA-mem2 de juiste plek van de DNA-stukjes op het genoom.
-    <br> 
         Daarna maakt Samtools de grote tekstbestanden (SAM) een stuk kleiner (BAM) om ruimte te besparen.
-    <br> 
         Als laatste zoekt BCFTools in deze bestanden naar de mutaties.
-    <br>
     <h2>
         Onderzoekvraag:
     </h2>
@@ -29,10 +30,45 @@
     <br>
     In welke genen zitten de mutaties?  
     <br>
+    <h2>
+        Benodigdheden:
+    </h2>   
+    <br> 1. Software: <br>
+    <br>1.1.BWA-mem2 V2.3: https://github.com/bwa-mem2/bwa-mem2/releases 
+    <br>1.2.Samtools V1.23: https://www.htslib.org/download/
+    <br>1.3.BCFtools V1.23: https://www.htslib.org/download/ <br><br>
+    
+    <br>2.Data: Raw FASTQ files (reads) en een Human Reference Genome <br>
+    zie figuur 2 <br><br>
+    <br>3.Hardware: Linux-omgeving (schoolcomputers)<br>
+    <h2>
+    Doelen & Eisen:    
+    </h2>
+    <br>Opdrachtgever:<br><br>
+    Er moet een dynamische website worden gemaakt waarbij de gebruiker een ruwe reads file kan uploaden. 
+    Voor deze file moeten dan opties gekozen kunnen worden die besproken zijn bij de tools, 
+    zoals minimale aantal nucleotides voor een match bij BWA-mem2. Hieruit komt 
+    dan een visualisatie (tabel/ grafiek) en/of de VCF-file (om de file te krijgen moet de gebruiker dit aangeven). 
+    <br><br>
+    <br>Eigen eisen:<br><br>
+    1.De backend moet net in elkaar zijn gezet doormiddel van in line comments en docstrings toe te voegen. 
+    Dit is zodat anderen programmeurs het kunnen debuggen of editen.
+    <br><br>
+    2.Alle tools op de website die de gebruiker gebruikt moeten werken zonder problemen.
+    Alle informatie over de verschillende opties van iedere tool moeten op de website duidelijk erop staan,
+    doormiddel van een handleiding of een info veld. Onder andere referentiewaardes en default waardes. 
+    <br><br>
+        </div>
+        <div style="flex: 1;">
             <br>
                 <img src="../static/pictures/pijplijn.png" alt="pijplijn" width="400">
             <br>
             <br>
-figuur 1: pijplijn 
+            figuur 1: pijplijn 
+            <br>
+            <br>
+            <img src="../static/pictures/reads.png" alt="pijplijn" width="400">
+            <br><br>
+            figuur 2: Raw FASTQ files (reads)
             <br>
 {% endblock %}

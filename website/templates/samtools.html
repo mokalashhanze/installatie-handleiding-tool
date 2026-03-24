@@ -2,7 +2,8 @@
 
 {% block content %}
 
-    <div>
+    <div style="display: flex; max-width: 200ch; justify-content: space-between; gap: 20px;">
+        <div style="flex: 1;">
         <h1>
             Samtools V1.23:
         </h1>
@@ -14,20 +15,12 @@
             )
         <br>
         SAMtools is een computerprogramma dat onderzoekers helpt om 
-        <br>
         enorme hoeveelheden DNA-gegevens te verwerken.
-        <br>            
         Na BWA-mem2 krijg je een SAM bestand. Dit is een groot tekstbestand,
-        <br>
         samtools verwerkt dit dan naar een BAM-bestand om ruimte te besparen en rekenkracht.
-        <br>
         Doormiddel van “samtools sort” wordt de data in het BAM-bestand gesorteerd
-        <br> 
         op hun positie in het genoom,BWA-mem2 doet dit niet zelf.
-        <br>
-        Daarna gaan wij dan met “samtools markdup” duplicaten markeren die dan genegeerd worden
-        <br> 
-        door BCFTools.
+        Daarna gaan wij dan met “samtools markdup” duplicaten markeren die dan genegeerd worden door BCFTools.
         <br>
         </p>
         <p>
@@ -39,23 +32,151 @@
         <h2>
              Input & ouput  
         </h2>
-        <h3>
+        <h2>
             Input: 
-        </h3>
-        <p>
-            Sam bestaand(tekst bestaand leesbaar voor mensen)
-        </p>
-            <br><br>
-                <img src="../static/pictures/Sam.png" alt="Sam bestaand">
-            <br>
-            <br>
-Figuur 3: Sam bestaand
-            <br>            
+        </h2>
         <h3>
+            Sam bestaand(tekst bestaand leesbaar voor mensen)
+        </h3>   
+        <br>
+        SAM staat voor Sequence Alignment/Map-formaat.
+        <br>
+        Het is een plat tekstbestand met kolommen die gescheiden zijn door tabs.
+        <br>
+        Het bestaat uit twee onderdelen:
+        <br>
+        1. Header: Begint met een @ en bevat metadata (zoals de versie en de namen van de chromosomen).
+        <br>
+        2. Alignment-sectie: Bevat de eigenlijke data van de reads, met 11 verplichte 
+        kolommen (zoals de naam van de read, de positie op het genoom en de kwaliteit).
+        <br>
+        <h2>
             Output:
-        </h3>
-        <p>
+        </h2>
+        <h3>
             Bam bestaand (binaire bestaand alleen leesbaar voor de computer)
-        </p>
+        </h3>
+        <br>
+        Een BAM-bestand (Binary Alignment Map) is de binaire versie van een SAM-bestand.
+        <br>
+        Het is veel kleiner dan een SAM-bestand (vaak 75% kleiner)
+        <br>
+        Daarom kunnen programma's zoals Samtools er veel sneller informatie uit vissen.
+        <br>
+        Als je een BAM-bestand opent, zie je alleen "gekke tekens". 
+        <br>
+        Je hebt altijd software nodig om de inhoud te zien.
+        <br>
+        <h2>
+            Samtools commando's:
+        </h2>
+        Hieronder vind je de meest gebruikte commando's om de bovenstaande SAM- en BAM-bestanden te verwerken.
+        <br>
+        <h3>
+            1. Bestandsconversie (SAM naar BAM)
+        </h3>
+        <b><i>>>>samtools view -b -o output.bam input.sam</i></b>
+        <h4>
+            Items:
+        </h4>
+        <i>view:</i> Het commando om data te bekijken <br>
+        <i>-b:</i> Vertelt het programma dat de output BAM (binair) moet zijn.<br>
+        <i>-o:</i> Specificeert de naam van het output-bestand.<br>
+        <i>output.bam:</i> het uitvoerbestand (Bam)<br>
+        <i>input.sam:</i> het invoerbestand (Sam)<br>
+
+        <br><b>Wat het commando doet? </b><br>
+         Het zet een groot, tekstgebaseerd SAM-bestand om in een compact,
+        binair BAM-bestand dat sneller is voor computers.
+        <h3>
+            2.Sorteren op positie
+        </h3>
+            <b><i>>>>samtools sort -o output.bam input.bam</i></b>
+        <h4>
+            Items:
+        </h4>
+        <i>sort:</i> Het commando dat de reads op volgorde van hun plek in het genoom zet. <br> 
+        <i>-o:</i> Specificeert de naam van het output-bestand.<br> 
+        <i>output.bam:</i> het uitvoerbestand (Bam)<br> 
+        <i>input.bam:</i> het invoerbestand (Bam)<br> 
+        <br><b>wat het commando doet? </b><br>
+         Het zet alle data netjes op volgorde van 
+        chromosoom 1 tot en met het einde, wat verplicht is voor bijna alle vervolgstappen.
+
+        </div>
+        <div style="flex: 1;">
+                        <br><br>
+                <img src="../static/pictures//Sam.png" alt="Sam bestaand">
+            <br>
+            <br>
+Figuur 1:
+        <a
+                href="https://miro.medium.com/v2/resize:fit:4800/format:webp/0*CePvh8XpBcbC1HjZ.png"> (Sam_bestaand/)
+        </a>
+            <br>
+            <br>
+            Elke uitlijningslijn heeft 11 verplichte velden voor essentiële uitlijningsinformatie,
+            zoals de positie van de kaart, en een variabel aantal optionele velden voor flexibele of alignerspecifieke informatie: 
+            <br>
+            <br>
+            1. Lees Naam
+            <br>
+2. SAM-vlag<br>
+3. chromosoom <br>
+4. positie (index) <br>
+5. MAPQ (mapping quality — beschrijft de uitlijning, 0=niet-uniek, >10 waarschijnlijk uniek)<br>
+6. CIGAR-string (beschrijft de positie van invoegingen/verwijderingen/overeenkomsten in de uitlijning)<br>
+7. Naam van de partner (informatie over het partnerpaar voor paired-end sequencing, vaak "=")<br>
+8. Positie van de partner (informatie over het partnerpaar)<br>
+9. Sjabloonlengte (altijd nul )<br>
+10. Leesvolgorde<br>
+11. Leeskwaliteit<br>
+        <br><br><br><br><br><br><br><br><br><br>
+
+        <h3>
+            3.  Een index aanmaken
+        </h3>
+            <b><i>>>>samtools index sorted.bam</i></b>
+        <h4>
+            Items:
+        </h4>
+        <i>index:</i> Maakt een hulpbestand aan (de index).<br> 
+        <i>sorted.bam:</i> Het gesorteerde bestand dat geïndexeerd moet worden.<br> 
+        <br><b>wat het commando doet? </b><br>
+        Het maakt een "inhoudsopgave" (sorted.bam.bai bestand) aan,
+        waardoor software razendsnel naar een specifieke regio in het genoom kan springen 
+        zonder het hele bestand te lezen.
+        <h3>
+            4. Duplicaten verwijderen
+        </h3>
+            <b><i>>>>samtools view -b -F 1024 -o output.bam input.bam</i></b>
+        <h4>
+            Items:
+        </h4>
+        <i>view:</i> Het commando om data te bekijken.<br> 
+        <i>-b:</i>Vertelt het programma dat de output BAM (binair) moet zijn.<br> 
+        <i>F:</i> Een filter-optie die reads verwijdert die aan een bepaalde code voldoen.<br> 
+        <i>1024:</i> De binaire code die aangeeft dat een read een duplicaat is.<br> 
+        <i>-o:</i>Specificeert de naam van het output-bestand.<br> 
+        <i>output.bam:</i> uitvoerbestand (zonder duplicaties)<br> 
+        <i>input.bam:</i> invoerbestand<br> 
+        <br><b>wat het commando doet?</b><br>
+         Het maakt een "schoon" bestand aan door alle duplicaten 
+        weg te filteren, zodat je analyse nauwkeuriger wordt.
+
+
+            <h5>
+                Bronvermelding:
+            </h5>   
+            <a
+         href= "https://medium.com/@shilparaopradeep/samtools-guide-learning-how-to-filter-and-manipulate-with-sam-bam-files-2c28b25d29e8"> (sam_info_bron)
+         </a><br>
+        <a
+        href= https://medium.com/@shilparaopradeep/samtools-guide-learning-how-to-filter-and-manipulate-with-sam-bam-files-2c28b25d29e8> (commando's-info-bron)
+        </a>
+        <a
+        href= https://www.htslib.org/doc/samtools-view.html>(commando's-voorbeelden)
+        </a>
+        </div>
     </div>
 {% endblock %}

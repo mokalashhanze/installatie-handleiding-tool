@@ -2,13 +2,17 @@
 
 {% block content %}
 
-    <div>
+    <div style="display: flex; max-width: 200ch; justify-content: space-between; gap: 20px;">
+        <div style="flex: 1;">
         <p class="paragraph_text">
-            BCFtools V1.23: (
+            <h1>
+            BCFtools V1.23:
+            </h1>
+            (
             <a href="https://www.htslib.org/download/">https://www.htslib.org/download/</a>
             )
             <br><br>
-Bcftools is een tool die vooral gebruikt wordt om VCF en BCF bestanden te manipuleren en analyseren.
+            Bcftools is een tool die vooral gebruikt wordt om VCF en BCF bestanden te manipuleren en analyseren.
             In het geval van onze pijplijn werken wij met een BAM-bestand als inputbestand en een VCF-bestand als outputbestand.
             <br><br>
             Hieronder staan de argumenten die wij met BCFtools gaan gebruiken.
@@ -26,8 +30,20 @@ Het eerste argument is mpileup: een algoritme om de ‘genotype likelihoods’ (
             het tweede argument van deze tool is BCFtools call: BCFtools call is een algoritme dat ‘variant calling’ (het vergelijken van een genoom met een referentiegenoom en de verschillen identificeren) doet.
             Met behulp van de eerder berekende genotype likelihoods evalueert dit algoritme de meest waarschijnlijke variant van het genetische materiaal.
             <br><br><br>
-            de output van bcftools is een VCF-bestand, zie foto hieronder.
+            de output van bcftools is een VCF-bestand, zie foto.
             <br><br>
+                        <br><br><br>
+            Voor meer informatie over bcftools, raadpleeg
+
+            <a
+            href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7931819/ ">https://pmc.ncbi.nlm.nih.gov/articles/PMC7931819/
+            </a> en
+            
+            <a href="https://www.htslib.org/doc/1.0/bcftools.html ">
+                https://www.htslib.org/doc/1.0/bcftools.html</a>
+
+            </div>
+            <div style="flex: 1;">
             <img src="../static/pictures/vcf_file.jpg" alt="example vcf file" height="300" width="450">
             <br><br>
             Afbeelding van
@@ -51,15 +67,6 @@ status van de variant, wat ‘pass’ is als het aan de kwaliteitsfilters voldoe
 aanvullende informatie, gescheiden door ‘;’(INFO) <br>
 de structuur van de data in de monsterkolommen (FORMAT) <br>
 en een of meerdere kolommen met data per monster, zoals genotype in de vorm van 0/0, 0/1 of 1/1 voor recessief homozygoot, heterozygoot en dominant homozygoot
-            <br><br><br>
-            Voor meer informatie over bcftools, raadpleeg
-
-            <a
-            href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7931819/ ">https://pmc.ncbi.nlm.nih.gov/articles/PMC7931819/
-            </a> en
-            
-            <a href="https://www.htslib.org/doc/1.0/bcftools.html ">
-                https://www.htslib.org/doc/1.0/bcftools.html</a>
 
         </p>
     </div>
