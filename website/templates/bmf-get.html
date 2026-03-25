@@ -1,55 +1,88 @@
 {% extends "main.html" %}
-
 {% block content %}
 
+{# Get form voor pagina (geeft de gebruiker wat ie moet invullen #}
+{% if method == 'GET' %}
 
-    {% if method == 'GET' %}
-        <p class="paragraph_text">
-            {% if fastq_bestand %}
-                Wrong file, only fastq or fq files accepted! Your file: {{ fastq_bestand }}
-            {% endif %}
-            {% if k and not fastq_bestand %}
-                No file, upload a file!
-            {% endif %}
-        </p>
+    <p class="paragraph_text">
+        {% if fastq_bestand %}
+            Verkeerde file, alleen fastq of fq files kunnen gebruikt worden! Jouw file: {{ fastq_bestand }}
+        {% endif %}
+        {% if k and not fastq_bestand %}
+            Geen file, upload een file!
+        {% endif %}
+    </p>
 
     <form action="/bmf" method="post" class="paragraph_text">
-            BWA-mem2
-        <br><br>
-            Upload hier jouw FASTQ-bestand:
-        <br>
-            <input type="file" name="fastq_bestand" accept=".fastq, .fq">
-        <br>
-        <br>
-            Minimaal aantal nucleotiden die moeten overeenkomen voor een match(default is 19, -k):
-        <br>
-            <input type="number" min="10" max="2000" step="1" value="19" name="nucleotiden_achter_elkaar">
-        <br>
-        <br>
-            Afstand tussen matches (default is 100, -w):
-        <br>
-            <input type="number" min="50" max="500" step="1" value="100" name="afstand_matches">
-        <br>
-        <br>
-            Maximaal aantal keer zelfde match gerapporteerd (default is 500, -c):
-        <br>
-            <input type="number" min="1" max="1500" step="1" value="500" name="maximaal_keer_gerapporteerd">
-        <br>
-        <br>
-            <button type="submit" name="submit">Submit</button>
-    </form>
-    {% endif %}
+        <h2>Nieuwe run</h2>
+        <p>BWA-mem2</p>
 
-    {% if method == 'POST' %}
-    <br><br>
-    <div class="paragraph_text">
-        fastq-bestand {{ fastq_bestand }}
+        Upload hier jouw FASTQ-bestand:
         <br>
-        nucleotiden achter elkaar {{ k }}
+        <input type="file" name="fastq_bestand" accept=".fastq, .fq">
+        <br><br>
+
+        Minimaal aantal nucleotiden (-k):
         <br>
-        afstand matches {{ w }}
+        <input type="number" min="10" max="2000" value="19" name="nucleotiden_achter_elkaar">
+        <br><br>
+
+        Afstand tussen matches (-w):
         <br>
-        maximaal keer gerapporteerd {{ c }}
-    </div>
+        <input type="number" min="50" max="500" value="100" name="afstand_matches">
+        <br><br>
+
+        Maximaal aantal keer gerapporteerd (-c):
+        <br>
+        <input type="number" min="1" max="1500" value="500" name="maximaal_keer_gerapporteerd">
+        <br><br>
+
+        <button type="submit">Submit</button>
+        {% if vorige %}
+            <br><br>
+            <h2> Vorige run</h2>
+
+            Vorige input:<br>
+            Fastq-bestand: {{ vorige.fastq_bestand }} <br>
+            Nucleotiden achter elkaar: {{ vorige.k }} <br>
+            Afstand matches: {{ vorige.w }} <br>
+            Maximaal keer gerapporteerd: {{ vorige.c }} <br><br>
+            Vorige output: <br>
+            <button type="button" onclick="window.location.href='/bmf/download'">out.vcf</button>
+
+
+        {% endif %}
+    </form>
+{% endif %}
+
+
+{# Deze pagina wordt gerefreshed tot dat het eind resultaat gemaakt is door de andere thread.#}
+{% if method == 'STATUS'%}
+
+    {% if status == "done" %}
+        <div class="paragraph_text">
+            <br>
+            Uw analyse is voltooid, hier zijn uw resultaten <br><br>
+            Uw input:<br>
+            Fastq-bestand: {{ fastq_bestand }} <br>
+            Nucleotiden achter elkaar: {{ k }} <br>
+            Afstand matches: {{ w }} <br>
+            Maximaal keer gerapporteerd: {{ c }} <br><br>
+            Uw output: <br>
+            <button type="button" onclick="window.location.href='/bmf/download'">out.vcf</button>
+        </div>
+    {% else %}
+        <meta http-equiv="refresh" content="3;url=/bmf">
+        <div class="paragraph_text">
+
+            <h2>Uw request is begonnen, dit kan lang duren (10–30 minuten).</h2>
+            U wordt automatisch doorgestuurd zodra het klaar is!
+            <br><br>
+            fastq-bestand: {{ fastq_bestand }} <br>
+            nucleotiden achter elkaar: {{ k }} <br>
+            afstand matches: {{ w }} <br>
+            maximaal keer gerapporteerd: {{ c }}
+        </div>
     {% endif %}
+{% endif %}
 {% endblock %}
