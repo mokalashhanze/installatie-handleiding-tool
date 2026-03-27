@@ -2,6 +2,7 @@ from flask import request, render_template, Flask, send_file
 from threading import Thread
 import tools
 import os
+import visualisatie
 
 app = Flask(__name__)
 
@@ -17,6 +18,7 @@ def home():
 def pijplijn(**kwargs):
     global job_status
     tools.main(kwargs)
+    visualisatie.main()
     job_status = "done"
 
 @app.route('/bmf', methods=['GET', 'POST'])
@@ -82,9 +84,8 @@ def contacten():
 
 @app.route('/bmf/download')
 def download():
-    file_path = os.path.join(app.root_path, "out.vcf")
+    file_path = os.path.join(app.root_path, "output", "out.vcf")
     return send_file(file_path,as_attachment=True,download_name="out.vcf")
-
 
 
 if __name__ == '__main__':
