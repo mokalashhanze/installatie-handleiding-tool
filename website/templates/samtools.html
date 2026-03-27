@@ -87,21 +87,16 @@
 
         <br><b>Wat het commando doet? </b><br>
          Het zet een groot, tekstgebaseerd SAM-bestand om in een compact,
-        binair BAM-bestand dat sneller is voor computers.
-        <h3>
-            2.Sorteren op positie
-        </h3>
-            <b><i>>>>samtools sort -o output.bam input.bam</i></b>
-        <h4>
-            Items:
-        </h4>
-        <i>sort:</i> Het commando dat de reads op volgorde van hun plek in het genoom zet. <br> 
-        <i>-o:</i> Specificeert de naam van het output-bestand.<br> 
-        <i>output.bam:</i> het uitvoerbestand (Bam)<br> 
-        <i>input.bam:</i> het invoerbestand (Bam)<br> 
-        <br><b>wat het commando doet? </b><br>
-         Het zet alle data netjes op volgorde van 
-        chromosoom 1 tot en met het einde, wat verplicht is voor bijna alle vervolgstappen.
+        binair BAM-bestand dat sneller is voor computers.<br><br>
+            <h3>
+                Bronvermelding:
+            </h3>   
+        <a
+        href= https://medium.com/@shilparaopradeep/samtools-guide-learning-how-to-filter-and-manipulate-with-sam-bam-files-2c28b25d29e8> (commando's-info-bron)
+        </a>
+        <a
+        href= https://www.htslib.org/doc/samtools-view.html>(commando's-voorbeelden)
+        </a>
 
         </div>
         <div style="flex: 1;">
@@ -131,52 +126,29 @@ Figuur 1:
 9. Sjabloonlengte (altijd nul )<br>
 10. Leesvolgorde<br>
 11. Leeskwaliteit<br>
-        <br><br><br><br><br><br><br><br><br><br>
-
-        <h3>
-            3.  Een index aanmaken
-        </h3>
-            <b><i>>>>samtools index sorted.bam</i></b>
         <h4>
-            Items:
+            Bronvermelding:
         </h4>
-        <i>index:</i> Maakt een hulpbestand aan (de index).<br> 
-        <i>sorted.bam:</i> Het gesorteerde bestand dat geïndexeerd moet worden.<br> 
-        <br><b>wat het commando doet? </b><br>
-        Het maakt een "inhoudsopgave" (sorted.bam.bai bestand) aan,
-        waardoor software razendsnel naar een specifieke regio in het genoom kan springen 
-        zonder het hele bestand te lezen.
-        <h3>
-            4. Duplicaten verwijderen
-        </h3>
-            <b><i>>>>samtools view -b -F 1024 -o output.bam input.bam</i></b>
-        <h4>
-            Items:
-        </h4>
-        <i>view:</i> Het commando om data te bekijken.<br> 
-        <i>-b:</i>Vertelt het programma dat de output BAM (binair) moet zijn.<br> 
-        <i>F:</i> Een filter-optie die reads verwijdert die aan een bepaalde code voldoen.<br> 
-        <i>1024:</i> De binaire code die aangeeft dat een read een duplicaat is.<br> 
-        <i>-o:</i>Specificeert de naam van het output-bestand.<br> 
-        <i>output.bam:</i> uitvoerbestand (zonder duplicaties)<br> 
-        <i>input.bam:</i> invoerbestand<br> 
-        <br><b>wat het commando doet?</b><br>
-         Het maakt een "schoon" bestand aan door alle duplicaten 
-        weg te filteren, zodat je analyse nauwkeuriger wordt.
-
-
-            <h5>
-                Bronvermelding:
-            </h5>   
-            <a
+        <a
          href= "https://medium.com/@shilparaopradeep/samtools-guide-learning-how-to-filter-and-manipulate-with-sam-bam-files-2c28b25d29e8"> (sam_info_bron)
          </a><br>
-        <a
-        href= https://medium.com/@shilparaopradeep/samtools-guide-learning-how-to-filter-and-manipulate-with-sam-bam-files-2c28b25d29e8> (commando's-info-bron)
-        </a>
-        <a
-        href= https://www.htslib.org/doc/samtools-view.html>(commando's-voorbeelden)
-        </a>
+        <br><br><br><br><br>
+        <h3>
+            2.Sorteren op positie
+        </h3>
+            <b><i>>>>samtools sort -o output.bam input.bam</i></b>
+        <h4>
+            Items:
+        </h4>
+        <i>sort:</i> Het commando dat de reads op volgorde van hun plek in het genoom zet. <br> 
+        <i>-o:</i> Specificeert de naam van het output-bestand.<br> 
+        <i>output.bam:</i> het uitvoerbestand (Bam)<br> 
+        <i>input.bam:</i> het invoerbestand (Bam)<br> 
+        <br><b>wat het commando doet? </b><br>
+         Het zet alle data netjes op volgorde van 
+        chromosoom 1 tot en met het einde, wat verplicht is voor bijna alle vervolgstappen.
+
+    
         </div>
     </div>
 {% endblock %}
