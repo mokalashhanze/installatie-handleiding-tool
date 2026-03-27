@@ -14,6 +14,31 @@ Na deze stappen kan er worden gekeken of er bijvoorbeeld mutaties zijn in het ge
 Raw FASTQ files (reads) en een Human Reference Genome
 ### 3.Hardware:
 Linux-omgeving (schoolcomputers)  
+## Website Structuur & Inhoud
+Onze website bestaat uit 6 navigeerbare pagina's:
+### 1. About pagina:
+* **Inhoud:** Een introductie en gedetailleerde uitleg over de pijplijn.
+* **Doel:** De gebruiker informeren waar de pijplijn over gaat.
+### 2. BMF pagina (Bioinformatics Mutation Finder):
+* **Inhoud:** Interactieve knoppen om een FASTQ-bestand te uploaden en te submitten.
+* **Doel:** Het verwerken van de data met bioinformatica-tools, het genereren van een VCF-bestand en het visualiseren van de gevonden mutaties.
+### 3 t/m 5. Tool pagina's:
+* **Inhoud:** Elke pagina bevat uitleg over een specifieke tool en de bijbehorende commando's.
+*  **Doel:** De gebruiker laten weten wat de tools precies doen.
+### 6. contact pagina:
+* **Inhoud:**  Contactgegevens van de studenten.
+* **Doel:** Inzicht geven in het team achter dit project
+## Gebruikte Python Bestanden:
+Onze website werkt met drie belangrijke Python-bestanden die elk hun eigen taak hebben:
+### 1. app.py:
+*  Dit is de hoofdapplicatie, gebouwd met Flask.
+*  Het regelt de navigatie tussen de pagina's en de communicatie tussen de gebruiker en de server.
+### 2. tools.py:
+* Dit script bevat de logica voor de bioinformatica-tools.
+*  Het roept de externe programma's (BWA-mem2, Samtools en BCFTools) aan via de terminal (met behulp van subprocesses).
+### 3. visualisatie.py
+*  Dit bestand leest de output (het VCF-bestand)
+*  Het maakt een barplot van de gevonden mutaties en hun posities op het genoom.
 # Installatie-handleiding-tool
 Markdown installatiehandleiding voor geselecteerde bio-informatica tools (bwa-mem2/SAMtools/BCFtools).
 ## Bwa-mem2 
