@@ -28,6 +28,17 @@ Onze website bestaat uit 6 navigeerbare pagina's:
 ### 6. contact pagina:
 * **Inhoud:**  Contactgegevens van de studenten.
 * **Doel:** Inzicht geven in het team achter dit project
+## Gebruikte Python Bestanden:
+Onze website werkt met drie belangrijke Python-bestanden die elk hun eigen taak hebben:
+### 1. app.py:
+*  Dit is de hoofdapplicatie, gebouwd met Flask.
+*  Het regelt de navigatie tussen de pagina's en de communicatie tussen de gebruiker en de server.
+### 2. tools.py:
+* Dit script bevat de logica voor de bioinformatica-tools.
+*  Het roept de externe programma's (BWA-mem2, Samtools en BCFTools) aan via de terminal (met behulp van subprocesses).
+### 3. visualisatie.py
+*  Dit bestand leest de output (het VCF-bestand)
+*  Het maakt een barplot van de gevonden mutaties en hun posities op het genoom.
 # Installatie-handleiding-tool
 Markdown installatiehandleiding voor geselecteerde bio-informatica tools (bwa-mem2/SAMtools/BCFtools).
 ## Bwa-mem2 
