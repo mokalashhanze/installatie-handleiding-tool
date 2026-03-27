@@ -74,7 +74,6 @@ def main(kwargs):
     )
 
     pipeline = [
-        bwamem2,
         samtools_view,
         samtools_sort,
         bcftools_mpileup,
