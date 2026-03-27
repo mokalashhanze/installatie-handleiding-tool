@@ -49,6 +49,9 @@
             Maximaal keer gerapporteerd: {{ vorige.c }} <br><br>
             Vorige output: <br>
             <button type="button" onclick="window.location.href='/bmf/download'">out.vcf</button>
+            <br><br>
+            <img src="../static/pictures/mutations_per_chromosome.png" alt="Een barplot die de resultaten laat zien">
+            <br>
 
 
         {% endif %}
@@ -70,9 +73,12 @@
             Maximaal keer gerapporteerd: {{ c }} <br><br>
             Uw output: <br>
             <button type="button" onclick="window.location.href='/bmf/download'">out.vcf</button>
+            <br>
+            <img src="../static/pictures/mutations_per_chromosome.png" alt="Een barplot die de resultaten laat zien">
+
         </div>
     {% else %}
-        <meta http-equiv="refresh" content="3;url=/bmf">
+        <meta http-equiv="refresh" content="15;url=/bmf">
         <div class="paragraph_text">
 
             <h2>Uw request is begonnen, dit kan lang duren (10–30 minuten).</h2>

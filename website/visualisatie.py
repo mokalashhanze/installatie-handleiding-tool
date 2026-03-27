@@ -145,5 +145,6 @@ def main():
     plot_maker(chromosomes,indels,snps)
     write_file(mutation_chromosomes)
 
+
 if __name__ == '__main__':
     main()
