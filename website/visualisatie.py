@@ -115,7 +115,7 @@ def write_file(mutation_dict):
     :param mutation_dict: a dictionary with structure key:{'indels':0,'snps':0}
     :return: None
     """
-    with open('mutations_per_chromosome_dict.txt', 'w') as file:
+    with open('output/mutations_per_chromosome_dict.txt', 'w') as file:
         for key, value in mutation_dict.items():
             file.write(f'{key}\t{value}\n')
 
