@@ -83,9 +83,16 @@ def contacten():
     return render_template('contactgegevens.html')
 
 @app.route('/bmf/download')
-def download():
+def download_all():
     file_path = os.path.join(app.root_path, "output", "out.vcf")
     return send_file(file_path,as_attachment=True,download_name="out.vcf")
+
+@app.route('/bmf/download2')
+def download_mutaties():
+    file_path = os.path.join(app.root_path, "output", "mutations_per_chromosome_dict.txt")
+    return send_file(file_path,as_attachment=True,download_name="mutations_per_chromosome_dict.txt")
+
+#output/mutations_per_chromosome_dict.txt
 
 
 if __name__ == '__main__':

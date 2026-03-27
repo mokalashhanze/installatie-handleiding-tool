@@ -105,7 +105,7 @@ def plot_maker(chromosomes, indels, snps):
     ax.bar(chromosomes, indels, label='indels')
     ax.bar(chromosomes, snps, bottom=indels, label='snps')
     ax.legend(loc='upper left')
-    fig.savefig('pictures/mutations_per_chromosome.png')
+    fig.savefig('static/pictures/mutations_per_chromosome.png')
 
     return
 
@@ -139,7 +139,7 @@ def main():
     #     'NC_012920.1': 'MT'
     # }
 
-    index_line, mutation_lines = read_file('out.vcf')
+    index_line, mutation_lines = read_file('output/out.vcf')
 
     mutation_chromosomes, chromosomes, indels, snps = datafilter(mutation_lines, index_line)
     plot_maker(chromosomes,indels,snps)

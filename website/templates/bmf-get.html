@@ -49,11 +49,11 @@
             Maximaal keer gerapporteerd: {{ vorige.c }} <br><br>
             Vorige output: <br>
             <button type="button" onclick="window.location.href='/bmf/download'">out.vcf</button>
+            <button type="button" onclick="window.location.href='/bmf/download2'">Mutaties</button>
+
             <br><br>
             <img src="../static/pictures/mutations_per_chromosome.png" alt="Een barplot die de resultaten laat zien">
             <br>
-
-
         {% endif %}
     </form>
 {% endif %}
@@ -73,9 +73,10 @@
             Maximaal keer gerapporteerd: {{ c }} <br><br>
             Uw output: <br>
             <button type="button" onclick="window.location.href='/bmf/download'">out.vcf</button>
+            <button type="button" onclick="window.location.href='/bmf/download2'">Mutaties</button>
+
             <br>
             <img src="../static/pictures/mutations_per_chromosome.png" alt="Een barplot die de resultaten laat zien">
-
         </div>
     {% else %}
         <meta http-equiv="refresh" content="15;url=/bmf">
