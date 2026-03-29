@@ -49,3 +49,17 @@ ul li.color {
     margin-right: 32px;
     text-align: left;
 }
+
+.dubbele_layout {
+    display: flex;
+    max-width: 200ch;
+    justify-content: space-between;
+    gap: 20px;
+}
+.flex-column {
+    flex: 1;
+}
+
+
+    
+}

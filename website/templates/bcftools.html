@@ -2,22 +2,21 @@
 
 {% block content %}
 
-    <div style="display: flex; max-width: 200ch; justify-content: space-between; gap: 20px;">
-        <div style="flex: 1;">
-        <p class="paragraph_text">
-            <h1>
-            BCFtools V1.23:
-            </h1>
+    <div class="dubbele_layout">
+        <div class="flex-column">
+            <div class="paragraph_text">
+            <h1> BCFtools V1.23: </h1>
             (
             <a href="https://www.htslib.org/download/">https://www.htslib.org/download/</a>
             )
+
             <br><br>
             Bcftools is een tool die vooral gebruikt wordt om VCF en BCF bestanden te manipuleren en analyseren.
             In het geval van onze pijplijn werken wij met een BAM-bestand als inputbestand en een VCF-bestand als outputbestand.
             <br><br>
             Hieronder staan de argumenten die wij met BCFtools gaan gebruiken.
             <br><br>
-Het eerste argument is mpileup: een algoritme om de ‘genotype likelihoods’ (hoe waarschijnlijk een specifiek genotype is gebaseerd op de beschikbare data)
+            Het eerste argument is mpileup: een algoritme om de ‘genotype likelihoods’ (hoe waarschijnlijk een specifiek genotype is gebaseerd op de beschikbare data)
             te berekenen en van deze berekeningen een VCF maakt.
             <br><br>
             De tweak die bij dit argument toe te passen is:
@@ -31,8 +30,7 @@ Het eerste argument is mpileup: een algoritme om de ‘genotype likelihoods’ (
             Met behulp van de eerder berekende genotype likelihoods evalueert dit algoritme de meest waarschijnlijke variant van het genetische materiaal.
             <br><br><br>
             de output van bcftools is een VCF-bestand, zie foto.
-            <br><br>
-                        <br><br><br>
+            <br><br><br><br><br>
             Voor meer informatie over bcftools, raadpleeg
 
             <a
@@ -41,34 +39,34 @@ Het eerste argument is mpileup: een algoritme om de ‘genotype likelihoods’ (
             
             <a href="https://www.htslib.org/doc/1.0/bcftools.html ">
                 https://www.htslib.org/doc/1.0/bcftools.html</a>
-
-            </div>
-            <div style="flex: 1;">
+    </div>
+        </div>
+            <div class="flex-column">
             <img src="../static/pictures/vcf_file.jpg" alt="example vcf file" height="300" width="450">
             <br><br>
             Afbeelding van
-            <a
-                href="https://commons.wikimedia.org/wiki/File:Vcf-format.jpg">
+        <a
+            href="https://commons.wikimedia.org/wiki/File:Vcf-format.jpg">
             https://commons.wikimedia.org/wiki/File:Vcf-format.jpg
         </a>
-            , voorbeeld van een VCF-bestand.
+            ,voorbeeld van een VCF-bestand.
             <br><br>
             In de header van een VCF-bestand staat de metadata
             <br><br>
             Verder bevat een VCF-bestand informatie over:
             <br><br>
             welk chromosoom een mutatie zit (#chrom)
-positie op het referentiegenoom (pos) <br>
- unieke identificatie (ID) <br>
- referentie base (REF) <br>
- alternatieve base (ALT) <br>
- kwaliteitsscore (QUAL), die de betrouwbaarheid van de variant call geeft <br>
-status van de variant, wat ‘pass’ is als het aan de kwaliteitsfilters voldoet of de naam geeft van het filter waar hij op faalde (FILTER) <br>
-aanvullende informatie, gescheiden door ‘;’(INFO) <br>
-de structuur van de data in de monsterkolommen (FORMAT) <br>
-en een of meerdere kolommen met data per monster, zoals genotype in de vorm van 0/0, 0/1 of 1/1 voor recessief homozygoot, heterozygoot en dominant homozygoot
+            positie op het referentiegenoom (pos) <br>
+            unieke identificatie (ID) <br>
+            referentie base (REF) <br>
+            alternatieve base (ALT) <br>
+            kwaliteitsscore (QUAL), die de betrouwbaarheid van de variant call geeft <br>
+            status van de variant, wat ‘pass’ is als het aan de kwaliteitsfilters voldoet of de naam geeft van het filter waar hij op faalde (FILTER) <br>
+            aanvullende informatie, gescheiden door ‘;’(INFO) <br>
+            de structuur van de data in de monsterkolommen (FORMAT) <br>
+            en een of meerdere kolommen met data per monster, zoals genotype in de vorm van 0/0, 0/1 of 1/1 voor recessief homozygoot, heterozygoot en dominant homozygoot
 
-        </p>
+        </div> 
     </div>
 
 {% endblock %}
