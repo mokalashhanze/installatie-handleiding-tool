@@ -39,6 +39,10 @@ Onze website werkt met drie belangrijke Python-bestanden die elk hun eigen taak 
 ### 3. visualisatie.py
 *  Dit bestand leest de output (het VCF-bestand)
 *  Het maakt een barplot van de gevonden mutaties en hun posities op het genoom.
+### 4. test_app.py:
+* dit bestand voert 8 aantal testen over de website uit
+* hij controleert als de website en dynamische webpagina's werken
+* hij controleert als de tools met verschillende inputs werken
 # Installatie-handleiding-tool
 Markdown installatiehandleiding voor geselecteerde bio-informatica tools (bwa-mem2/SAMtools/BCFtools).
 ## Bwa-mem2 
