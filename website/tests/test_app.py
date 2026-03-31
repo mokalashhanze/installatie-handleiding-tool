@@ -3,13 +3,13 @@ from app import app
 from tools import Tool
 
 @pytest.fixture
-def client():
-    """
-    Zet Flask-app in testmodus en maakt een testclient aan.
-    Hiermee kunnen we requests naar de server sturen zonder de app te draaien.
-    """
-    app.config['TESTING'] = True  # Activeer de testomgeving binnen Flask
-    return app.test_client()
+#def client():
+   # """
+    #Zet Flask-app in testmodus en maakt een testclient aan.
+   # Hiermee kunnen we requests naar de server sturen zonder de app te draaien.
+    #"""
+    #app.config['TESTING'] = True  # Activeer de testomgeving 
+    #return app.test_client()
 
 # 1. Werkt de website?
 def test_website(client):
@@ -36,7 +36,7 @@ def test_DYNAMISCHE_valid(client):
 # 3. UNIT TEST: Test de __str__ methode 
 def test_tool_str_output():
     """
-    Test of de Tool-klasse een correcte leesbare string geeft.
+    Test of de Tool-class een correcte leesbare string geeft.
     """
     test_tool = Tool(                 # Maak een nieuw Tool-object aan met specifieke variabelen
         method="test_method", 
@@ -74,39 +74,56 @@ def test_bwa_mem2_arguments():
 # 5. Test de view functie in samtools
 def test_samtools_view_arguments():
     """
-    Test de 'view' methode van de samtools in tools.py.
+    Test de 'view' methode van de samtools met variabelen.
     """
+    # Stap 1: Definieer je test-waarden
+    test_input = "input.sam"
+    test_output = "output.bam"
+    test_flag = "-b"  
+    # Stap 2: Maak het Tool-object aan met de variabelen
     test_tool = Tool(                 
         method="samtools view",
-        input_file="input.sam",
-        output_file="output.bam",
-        tweaks="-b"
+        input_file=test_input,
+        output_file=test_output,
+        tweaks=test_flag
     )
+    # Stap 3: Haal de argumenten op
     args = test_tool.arguments()   
+    # Stap 4: Controleer of de variabelen op de juiste plek staan
     assert "samtools view" in args    
-    assert "-b" in args              
-    assert "-o output.bam" in args 
-
+    assert test_flag in args              
+    assert f"-o {test_output}" in args 
+    assert test_input in args
 
 # 6. TEST bcftools mpileup 
 def test_bcftools_mpileup_arguments():
     """
-    Test de mpileup van de bcftools in tools.py
+    Test de mpileup van de bcftools met variabelen voor bestandspaden.
     """
+    # 1. Definieer de variabelen
+    methode = "bcftools mpileup"
+    referentie = "referentie/genome.fna"
+    input_bam = "output/sorted.bam"
+    output_bcf = "output/mpileup.bcf"
+
+    # 2. Maak het Tool object aan
     bcftools_mpileup = Tool(       
-        method="bcftools mpileup",
-        refseq="referentie/genome.fna",
-        input_file="output/sorted.bam",
-        output_file="output/mpileup.bcf"
+        method=methode,
+        refseq=referentie,
+        input_file=input_bam,
+        output_file=output_bcf
     )
+    
     args = bcftools_mpileup.arguments()      
-    assert "bcftools mpileup" in args         
-    assert "-f referentie/genome.fna" in args 
-    assert "-o output/mpileup.bcf" in args   
-    assert "output/sorted.bam" in args    
+
+    # 3. Asserties met de variabelen
+    assert methode in args         
+    assert f"-f {referentie}" in args 
+    assert f"-o {output_bcf}" in args   
+    assert input_bam in args
 
 # 7. EDGE CASE: Verkeerd bestandstype 
-def test_invalid_bestanden(client):
+def test_ongeldig_bestanden(client):
     """
     Test hoe de website reageert op een ongeldige bestandsextensie (.pdf).
     """
@@ -117,10 +134,11 @@ def test_invalid_bestanden(client):
         "maximaal_keer_gerapporteerd": "2"
     }
     response = client.post('/bmf', data=payload)  # Verstuur de foutieve data
+    assert response.status_code == 200
     assert b"Verkeerde file" in response.data    
 
 # 8. EDGE CASE: lege velden
-def test_empty_fields(client):
+def test_lege_velden(client):
     """
     controleert hoe de website regeart op de lege velden
     """
@@ -132,4 +150,5 @@ def test_empty_fields(client):
     } 
     
     response = client.post('/bmf', data=payload)
+    assert response.status_code == 200
     assert b"Geen file, upload een file!" in response.data
