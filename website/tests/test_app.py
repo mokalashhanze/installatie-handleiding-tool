@@ -1,4 +1,5 @@
 import pytest
+import html5lib
 from app import app
 from tools import Tool
 
@@ -153,3 +154,20 @@ def test_lege_velden(client):
     response = client.post('/bmf', data=payload)
     assert response.status_code == 200
     assert b"Geen file, upload een file!" in response.data
+
+# 9. Test HTML validatie
+@pytest.mark.parametrize('uri', [
+    '/',
+    '/bwa-mem2',
+    '/samtools',
+    '/bcftools',
+    '/contacten',
+])
+def test_html_parse(client, uri):
+    response = client.get(uri)
+    assert response.status_code == 200
+    try:
+        parser = html5lib.HTMLParser(strict=True, namespaceHTMLElements=False)
+        htmldoc = parser.parse(response.data)
+    except html5lib.html5parser.ParseError as error:
+        pytest.fail(f'{error.__class__.__name__}: {str(error)}', pytrace=False)
