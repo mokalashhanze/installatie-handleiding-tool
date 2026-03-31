@@ -59,7 +59,7 @@
         Daarom kunnen programma's zoals Samtools er veel sneller informatie uit vissen.
         Als je een BAM-bestand opent, zie je alleen "gekke tekens". 
         Je hebt altijd software nodig om de inhoud te zien.
-  
+        <br><br><br><br>
         <h2> Samtools commando's: </h2>
         Hieronder vind je de meest gebruikte commando's om de 
         bovenstaande SAM- en BAM-bestanden te verwerken.
@@ -78,17 +78,20 @@
         <br><strong>Wat het commando doet? </strong><br>
         Het zet een groot, tekstgebaseerd SAM-bestand om in een compact,
         binair BAM-bestand dat sneller is voor computers.<br><br>
+                <h3>2. Sorteren op positie </h3>
+        <strong><em>>>>samtools sort -o output.bam input.bam</em></strong>
 
-            <h3> Bronvermelding: </h3>  
+        <h4> Items: </h4>
 
-        <a
-        href= https://medium.com/@shilparaopradeep/samtools-guide-learning-how-to-filter-and-manipulate-with-sam-bam-files-2c28b25d29e8>
-        (commando's-info-bron)
-        </a>
-        <a
-        href= https://www.htslib.org/doc/samtools-view.html>
-        (commando's-voorbeelden)
-        </a>
+        <strong>sort:</strong> Het commando dat de reads op volgorde van hun plek in het genoom zet.<br> 
+        <strong>-o:</strong> Specificeert de naam van het output-bestand.<br> 
+        <strong>output.bam:</strong> het uitvoerbestand (Bam)<br> 
+        <strong>input.bam:</strong> het invoerbestand (Bam)<br> 
+        <br><strong>wat het commando doet? </strong><br>
+        Het zet alle data netjes op volgorde van 
+        chromosoom 1 tot en met het einde, wat verplicht is voor bijna alle vervolgstappen.
+        <br><br> <br><br> <br><br>
+
     </div>
         </div>
             <div class = "flex-column">
@@ -116,24 +119,33 @@
             10. Leesvolgorde<br>
             11. Leeskwaliteit<br>
 
-        <h4> Bronvermelding: </h4>
+        <h4> Bronvermelding 1: </h4>
         <a
          href= "https://medium.com/@shilparaopradeep/samtools-guide-learning-how-to-filter-and-manipulate-with-sam-bam-files-2c28b25d29e8"> (sam_info_bron)
          </a>
         <br><br><br><br><br><br>
-
-        <h3> 2.Sorteren op positie </h3>
-        <strong><em>>>>samtools sort -o output.bam input.bam</em></strong>
-
+        <h3>3. Indexeren van BAM-bestand:</h3>
+        <strong> >>>samtools index -b sorted_output.bam </strong><br>
         <h4> Items: </h4>
-
-        <strong>sort:</strong> Het commando dat de reads op volgorde van hun plek in het genoom zet.<br> 
-        <strong>-o:</strong> Specificeert de naam van het output-bestand.<br> 
-        <strong>output.bam:</strong> het uitvoerbestand (Bam)<br> 
-        <strong>input.bam:</strong> het invoerbestand (Bam)<br> 
+        <strong>samtools: </strong> De tool die de indexering start.<br>
+        <strong>index:</strong> Het commando om een "inhoudsopgave" van het BAM-bestand te maken.<br>
+        <strong>b: </strong> Specificeert dat er een BAI-index (BAM Index) gegenereerd moet worden.<br>
+        <strong>sorted_output.bam: </strong> Het gesorteerde BAM-bestand dat de "inhoudsopgave" krijgt.<br><br>
+        <strong>Output:</strong>Er wordt een bestand genaamd sorted_output.bam.bai aangemaakt in dezelfde map.<br>
         <br><strong>wat het commando doet? </strong><br>
-        Het zet alle data netjes op volgorde van 
-        chromosoom 1 tot en met het einde, wat verplicht is voor bijna alle vervolgstappen.
+        Het maakt een index-bestand aan waarmee andere programma's (bcftools) razendsnel naar specifieke 
+        locaties in het grote BAM-bestand kunnen springen zonder het hele bestand te hoeven lezen.
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <h3> Bronvermelding 2: </h3>  
+
+        <a
+        href= https://medium.com/@shilparaopradeep/samtools-guide-learning-how-to-filter-and-manipulate-with-sam-bam-files-2c28b25d29e8>
+        (commando's-info-bron)
+        </a>
+        <a
+        href= https://www.htslib.org/doc/samtools-view.html>
+        (commando's-voorbeelden)
+        </a>
         </div>
     </div>
 {% endblock %}
