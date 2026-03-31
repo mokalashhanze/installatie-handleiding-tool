@@ -11,6 +11,9 @@
         {% if k and not fastq_bestand %}
             Geen file, upload een file!
         {% endif %}
+        {% if chromosoom_begin %}
+            Einde is lager dan hoger, begin: {{ chromosoom_begin }}, einde: {{ chromosoom_eind }}
+        {% endif %}
     </p>
 
     <form action="/bmf" method="post" class="paragraph_text">

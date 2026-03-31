@@ -60,6 +60,8 @@ def bmf():
 
         if file_type not in ("fastq", "fq"):
             return render_template("bmf-get.html", method="GET", **kwargs)
+        if int(kwargs["chromosoom_begin"]) > int(kwargs["chromosoom_eind"]):
+            return render_template("bmf-get.html", method="GET", **kwargs)
 
         job_status = "running"
 
