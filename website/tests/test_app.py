@@ -11,20 +11,18 @@ def client():
     app.config['TESTING'] = True  # Activeer de testomgeving binnen Flask
     return app.test_client()
 
-
 # 1. Werkt de website?
 def test_website(client):
     """
     Controleert of de website werkt
     """
-    response = client.get('/')      # Voer een GET-request uit op de root-URL
-    assert response.status_code == 200  # Controleer of de server HTTP 200 (OK) teruggeeft
+    response = client.get('/')      # Voer een GET-request uit op de home pagina(index.html)
+    assert response.status_code == 200  # Controleer of de server 200 (OK) teruggeeft
 
-
-# 2. DYNAMISCHE PAGINA: (Happy Flow)
+# 2. DYNAMISCHE PAGINA:
 def test_DYNAMISCHE_valid(client):
     """
-    Test of het formulier correct wordt verwerkt zonder de pijplijn te starten.
+    Test of de dynamische pagina werkt
     """
     payload = {                               
         "fastq_bestand": "data.fastq",
@@ -34,7 +32,6 @@ def test_DYNAMISCHE_valid(client):
     }
     response = client.post('/bmf', data=payload)  # Verstuur de data via een POST-request naar /bmf
     assert response.status_code == 200            # Controleer of de pagina succesvol reageert
-
 
 # 3. UNIT TEST: Test de __str__ methode 
 def test_tool_str_output():
@@ -74,7 +71,6 @@ def test_bwa_mem2_arguments():
     assert "bwa-mem2 mem" in args            
     assert "-o output/output.sam" in args     
 
-
 # 5. Test de view functie in samtools
 def test_samtools_view_arguments():
     """
@@ -109,7 +105,6 @@ def test_bcftools_mpileup_arguments():
     assert "-o output/mpileup.bcf" in args   
     assert "output/sorted.bam" in args    
 
-
 # 7. EDGE CASE: Verkeerd bestandstype 
 def test_invalid_bestanden(client):
     """
@@ -122,15 +117,19 @@ def test_invalid_bestanden(client):
         "maximaal_keer_gerapporteerd": "2"
     }
     response = client.post('/bmf', data=payload)  # Verstuur de foutieve data
-    # Controleer of de pagina herlaadt maar GEEN succesmelding ('STATUS') toont
-    assert b"STATUS" not in response.data    
+    assert b"Verkeerde file" in response.data    
 
-
-# 8. EDGE CASE: 404 Not Found
-def test_404(client):
+# 8. EDGE CASE: lege velden
+def test_empty_fields(client):
     """
-    Edge case: Controleert of de server netjes een 404-fout geeft 
-    wanneer een gebruiker een pagina bezoekt die niet bestaat.
+    controleert hoe de website regeart op de lege velden
     """
-    response = client.get('/niet-bestaand')   # Vraag een niet-bestaande route op
-    assert response.status_code == 404        # Controleer of de statuscode exact 404 is
+    payload = { 
+        "fastq_bestand": "", 
+        "nucleotiden_achter_elkaar": "19", # Dit wordt 'k' in je app.py
+        "afstand_matches": "100",
+        "maximaal_keer_gerapporteerd": "500"
+    } 
+    
+    response = client.post('/bmf', data=payload)
+    assert b"Geen file, upload een file!" in response.data
