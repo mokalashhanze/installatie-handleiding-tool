@@ -5,13 +5,13 @@
 {% if method == 'GET' %}
 
     <p class="paragraph_text">
-        {% if fastq_bestand %}
+        {% if file %}
             Verkeerde file, alleen fastq of fq files kunnen gebruikt worden! Jouw file: {{ fastq_bestand }}
         {% endif %}
         {% if k and not fastq_bestand %}
             Geen file, upload een file!
         {% endif %}
-        {% if chromosoom_begin %}
+        {% if chromosoom_status %}
             Einde is lager dan hoger, begin: {{ chromosoom_begin }}, einde: {{ chromosoom_eind }}
         {% endif %}
     </p>
