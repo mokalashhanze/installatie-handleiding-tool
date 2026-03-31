@@ -50,6 +50,9 @@ def bmf():
             "k": request.form['nucleotiden_achter_elkaar'],
             "w": request.form['afstand_matches'],
             "c": request.form['maximaal_keer_gerapporteerd'],
+            "chromosoom" : request.form['chromosoom'],
+            "chromosoom_begin" : request.form['chromosoom_begin'],
+            "chromosoom_eind" : request.form['chromosoom_eind'],
         }
 
         file_name = kwargs["fastq_bestand"]
@@ -96,4 +99,4 @@ def download_mutaties():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=8888)
