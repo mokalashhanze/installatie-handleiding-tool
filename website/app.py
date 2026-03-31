@@ -59,8 +59,10 @@ def bmf():
         file_type = file_name.rsplit(".", 1)[-1]
 
         if file_type not in ("fastq", "fq"):
+            kwargs["file"] = "slecht"
             return render_template("bmf-get.html", method="GET", **kwargs)
         if int(kwargs["chromosoom_begin"]) > int(kwargs["chromosoom_eind"]):
+            kwargs["chromosoom_status"] = "slecht"
             return render_template("bmf-get.html", method="GET", **kwargs)
 
         job_status = "running"
