@@ -3,13 +3,15 @@ from app import app
 from tools import Tool
 
 @pytest.fixture
-#def client():
-   # """
-    #Zet Flask-app in testmodus en maakt een testclient aan.
-   # Hiermee kunnen we requests naar de server sturen zonder de app te draaien.
-    #"""
-    #app.config['TESTING'] = True  # Activeer de testomgeving 
-    #return app.test_client()
+def client():
+    """
+    Zet Flask-app in testmodus en maakt een testclient aan.
+    Hiermee kunnen we requests naar de server sturen zonder de app te draaien.
+    """
+    # Zorgt dat foutmeldingen direct in de terminal verschijnen 
+    app.config['TESTING'] = True 
+     # Geeft een 'test_client' terug waarmee je GET en post requests kunt uitvoeren
+    return app.test_client()
 
 # 1. Werkt de website?
 def test_website(client):
@@ -30,8 +32,8 @@ def test_DYNAMISCHE_valid(client):
         "afstand_matches": "5",
         "maximaal_keer_gerapporteerd": "2"
     }
-    response = client.post('/bmf', data=payload)  # Verstuur de data via een POST-request naar /bmf
-    assert response.status_code == 200            # Controleer of de pagina succesvol reageert
+    response = client.post('/bmf', data=payload) 
+    assert response.status_code == 200   
 
 # 3. UNIT TEST: Test de __str__ methode 
 def test_tool_str_output():
@@ -58,7 +60,7 @@ def test_bwa_mem2_arguments():
     Test of de bwa_mem2 commando's (k, w en c parameters) correct worden opgebouwd.
     """
     test_k, test_w, test_c = "15", "10", "5"  # Definieer test-waarden voor de argumenten
-    bwamem2 = Tool(                           # Maak een Tool-object specifiek voor bwa-mem2
+    bwamem2 = Tool(                
         method=f"bwa-mem2 mem -k {test_k} -w {test_w} -c {test_c}",
         refseq="referentie/ref.fna",
         input_file="data.fastq",
@@ -76,20 +78,20 @@ def test_samtools_view_arguments():
     """
     Test de 'view' methode van de samtools met variabelen.
     """
-    # Stap 1: Definieer je test-waarden
+    # Definieer je test-waarden
     test_input = "input.sam"
     test_output = "output.bam"
     test_flag = "-b"  
-    # Stap 2: Maak het Tool-object aan met de variabelen
+    # Maak het Tool-object aan met de variabelen
     test_tool = Tool(                 
         method="samtools view",
         input_file=test_input,
         output_file=test_output,
         tweaks=test_flag
     )
-    # Stap 3: Haal de argumenten op
+    # Haal de argumenten op
     args = test_tool.arguments()   
-    # Stap 4: Controleer of de variabelen op de juiste plek staan
+    # Controleer of de variabelen op de juiste plek staan
     assert "samtools view" in args    
     assert test_flag in args              
     assert f"-o {test_output}" in args 
@@ -100,13 +102,13 @@ def test_bcftools_mpileup_arguments():
     """
     Test de mpileup van de bcftools met variabelen voor bestandspaden.
     """
-    # 1. Definieer de variabelen
+    # Definieer de variabelen
     methode = "bcftools mpileup"
     referentie = "referentie/genome.fna"
     input_bam = "output/sorted.bam"
     output_bcf = "output/mpileup.bcf"
 
-    # 2. Maak het Tool object aan
+    # Maak het Tool object aan
     bcftools_mpileup = Tool(       
         method=methode,
         refseq=referentie,
@@ -116,7 +118,7 @@ def test_bcftools_mpileup_arguments():
     
     args = bcftools_mpileup.arguments()      
 
-    # 3. Asserties met de variabelen
+    #  Asserties met de variabelen
     assert methode in args         
     assert f"-f {referentie}" in args 
     assert f"-o {output_bcf}" in args   
@@ -127,13 +129,13 @@ def test_ongeldig_bestanden(client):
     """
     Test hoe de website reageert op een ongeldige bestandsextensie (.pdf).
     """
-    payload = {                               # Maak een payload met een foutieve extensie
-        "fastq_bestand": "document.pdf",      # PDF is niet toegestaan voor bio-informatica tools
+    payload = {                     
+        "fastq_bestand": "document.pdf",  
         "nucleotiden_achter_elkaar": "10",
         "afstand_matches": "5",
         "maximaal_keer_gerapporteerd": "2"
     }
-    response = client.post('/bmf', data=payload)  # Verstuur de foutieve data
+    response = client.post('/bmf', data=payload)  
     assert response.status_code == 200
     assert b"Verkeerde file" in response.data    
 
@@ -144,11 +146,10 @@ def test_lege_velden(client):
     """
     payload = { 
         "fastq_bestand": "", 
-        "nucleotiden_achter_elkaar": "19", # Dit wordt 'k' in je app.py
+        "nucleotiden_achter_elkaar": "19",
         "afstand_matches": "100",
         "maximaal_keer_gerapporteerd": "500"
     } 
-    
     response = client.post('/bmf', data=payload)
     assert response.status_code == 200
     assert b"Geen file, upload een file!" in response.data
