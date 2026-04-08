@@ -14,7 +14,7 @@ def read_file(filename):
     :return: file_lines: all of the not-metadata lines in the file, filtered by useful info
     """
     # for different information in the final list, change the desired info in useful_info
-    useful_info = ['#CHROM', 'INFO']
+    useful_info = ['#CHROM', 'POS', 'INFO']
     file_lines = []
     info_indices = []
     with open(filename, 'r') as file:
@@ -50,11 +50,14 @@ def datafilter(mutation_lines, index_line):
     :return:
     """
     info_position = 0
+    pos_position = 0
     chrom_position = 0
 
     for position, item in enumerate(index_line):
         if item == '#CHROM':
             chrom_position = position
+        elif item == 'POS':
+            pos_position = position
         elif item == 'INFO':
             info_position = position
 
@@ -63,14 +66,16 @@ def datafilter(mutation_lines, index_line):
     # with the chromosome name as the key
     for subline in mutation_lines:
         chrom_in_mutation_lines = subline[chrom_position]
-        if chrom_in_mutation_lines not in indels_and_snps:
-            indels_and_snps[chrom_in_mutation_lines] = {'INDEL':0, 'SNP':0}
 
+        if chrom_in_mutation_lines not in indels_and_snps:
+            indels_and_snps[chrom_in_mutation_lines] = {'INDEL':{'amount':0, 'positions':[]}, 'SNP':{'amount':0, 'positions':[]}}
 
         if 'INDEL' in subline[info_position]:
-            indels_and_snps[chrom_in_mutation_lines]['INDEL'] += 1
+            indels_and_snps[chrom_in_mutation_lines]['INDEL']['amount'] += 1
+            indels_and_snps[chrom_in_mutation_lines]['INDEL']['positions'].append(subline[pos_position])
         if 'SNP' in subline[info_position]:
-            indels_and_snps[chrom_in_mutation_lines]['SNP'] += 1
+            indels_and_snps[chrom_in_mutation_lines]['SNP']['amount'] += 1
+            indels_and_snps[chrom_in_mutation_lines]['SNP']['positions'].append(subline[pos_position])
 
 
     mutation_chromosomes = {}
@@ -80,13 +85,13 @@ def datafilter(mutation_lines, index_line):
     # this loop prepares the data for 2 functions, the lists are used for pyplot
     # and the mutation_chromsomes are used to write in a file
     for key in indels_and_snps:
-        if indels_and_snps[key]['INDEL'] == 0 and indels_and_snps[key]['SNP'] == 0:
+        if indels_and_snps[key]['INDEL']['amount'] == 0 and indels_and_snps[key]['SNP']['amount'] == 0:
             continue
         else:
             mutation_chromosomes[key] = indels_and_snps[key]
             chromosomes.append(key)
-            indels.append(indels_and_snps[key]['INDEL'])
-            snps.append(indels_and_snps[key]['SNP'])
+            indels.append(indels_and_snps[key]['INDEL']['amount'])
+            snps.append(indels_and_snps[key]['SNP']['amount'])
     return mutation_chromosomes, chromosomes, indels, snps
 
 
@@ -117,7 +122,9 @@ def write_file(mutation_dict):
     """
     with open('output/mutations_per_chromosome_dict.txt', 'w') as file:
         for key, value in mutation_dict.items():
-            file.write(f'{key}\t{value}\n')
+            file.write(f'{key}\n')
+            file.write(f'INDELS:{value["INDEL"]}\n')
+            file.write(f'SNP\'S: {value["SNP"]}\n')
 
     return
 
@@ -127,20 +134,8 @@ def main():
     the main function, where all other functions are ran
     :return:
     """
-    # chromosome_dict = {
-    #     'NC_000001.11': 1, 'NC_000002.12': 2, 'NC_000003.12': 3,
-    #     'NC_000004.12': 4, 'NC_000005.10': 5, 'NC_000006.12': 6,
-    #     'NC_000007.14': 7, 'NC_000008.11': 8, 'NC_000009.12': 9,
-    #     'NC_000010.11': 10, 'NC_000011.10': 11, 'NC_000012.12': 12,
-    #     'NC_000013.11': 13, 'NC_000014.9': 14, 'NC_000015.10': 15,
-    #     'NC_000016.10': 16, 'NC_000017.11': 17, 'NC_000018.10': 18,
-    #     'NC_000019.10': 19, 'NC_000020.11': 20, 'NC_000021.9': 21,
-    #     'NC_000022.11': 22, 'NC_000023.11': 'X', 'NC_000024.10': 'Y',
-    #     'NC_012920.1': 'MT'
-    # }
 
     index_line, mutation_lines = read_file('output/out.vcf')
-
     mutation_chromosomes, chromosomes, indels, snps = datafilter(mutation_lines, index_line)
     plot_maker(chromosomes,indels,snps)
     write_file(mutation_chromosomes)
