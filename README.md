@@ -47,7 +47,6 @@ Onze website werkt met drie belangrijke Python-bestanden die elk hun eigen taak 
 Markdown installatiehandleiding voor geselecteerde bio-informatica tools (bwa-mem2/SAMtools/BCFtools).
 ## Bwa-mem2 
 Het pakt losse stukjes DNA en zoekt voor elk stukje de juiste plek op een grote kaart van het genoom.
-## Installatie:
 Volg deze stappen om de nieuwste versie van ***bwa-mem2*** te downloaden en te installeren op je Linux-systeem:
 ### Stap 1: bwa-mem2 Downloaden
 1. Ga naar de website: [ https://github.com/bwa-mem2/bwa-mem2/releases ]( https://github.com/bwa-mem2/bwa-mem2/releases )
@@ -83,7 +82,6 @@ Druk op Ctrl + O (opslaan), dan Enter, en daarna op Ctrl + X (afsluiten).
    ```
 ## Samtools:
 Hij zet alle losse stukjes DNA op de juiste volgorde en ruimt de data netjes op zodat de computer het sneller kan lezen.
-## Installatie:
 Volg deze stappen om de nieuwste versie van ***Samtools*** te downloaden en te installeren op je Linux-systeem:
 ### Stap 1: Samtools downloaden
 1. Ga naar de website [https://www.htslib.org/download/](https://www.htslib.org/download/)
@@ -126,7 +124,6 @@ Druk op Ctrl + O (opslaan), dan Enter, en daarna op Ctrl + X (afsluiten).
    ```
 ## BCFtools:
 Hij vergelijkt DNA-stukjes om mutaties te laten zien 
-## Installatie:
 Volg deze stappen om de nieuwste versie van ***Bcftools*** te downloaden en te installeren op je Linux-systeem:
 ### Stap 1: Bcftools downloaden
 1. Ga naar de website: [https://www.htslib.org/download/](https://www.htslib.org/download/)
@@ -167,6 +164,21 @@ Druk op Ctrl + O (opslaan), dan Enter, en daarna op Ctrl + X (afsluiten).
    ```
       source ~/.bashrc
    ```
+
+
+### Folders
+
+#### referentie
+Nu heb je alle tools geinstalleerd, maar je hebt nog steeds het referentie genoom nodig download die hier. [Menselijk genoom](https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000001405.40)
+Run dan het commando om het te indexeren:
+   ```
+      bwa-mem2 -p index GCF_000001405.40_GRCh38.p14_genomic.fna
+   ```
+Kopier hierna alle files die BWA-mem2 maakt en zet ze in website/referentie. Al bestaat deze folder niet, maak hem aan.
+
+#### output
+In de output folder komen alle verschillende output bestanden van de vorige run te staan, al wilt je de andere bestanden gebruiken die niet te downloaden zijn op de website zijn deze hier te vinden. Al wil je de grafiek output van de website moet je in static/pictures kijken voor de file mutations_per_chromosome.png
+
 ### referenties:
 1. Bwa.mem2:[bwa.mem](https://bio-bwa.sourceforge.net/)
 2. Samtools [Samtools](https://samtools.sourceforge.net/)
