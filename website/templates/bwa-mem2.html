@@ -7,52 +7,48 @@
             <div class="paragraph_text">
 
             <h1> BWA-mem2 (Burrows-Wheeler Aligner) V2.3: </h1>
-            (
-            <a
-            href="https://github.com/bwa-mem2/bwa-mem2/releases">
-            https://github.com/bwa-mem2/bwa-mem2/releases
-            </a>
-            )
+            <a href="https://github.com/bwa-mem2/bwa-mem2/releases">BWA-mem2 github </a>
             <br><br>
             BWA-mem2 is de methode die op onze website wordt gebruikt om lose DNA-stukjes tegen een referentiegenoom uit te mappen.
             De eerste stap hierbij is het indexeren van het menselijk referentie genoom.
             <br><br>
-            bwa-mem2 -p [outputfilenaam] index [inputfilenaam]
+            <strong>>>> bwa-mem2 -p [outputfilenaam] index [inputfilenaam]</strong>
             <br><br>
             bwa-mem2 index bouwt een index op van het een referentie-genoom (menselijke genoom voor onze website) dit wordt gedaan door middel van een FASTA-referentiebestand.
             <br><br>
             Dit is het enigste dat nodig is om DNA data daarna snel te mappen met BWA-mem2. De enige dingen die aan dit commando veranderd kunnen worden is de outputfilenaam en de inputfilenaam.
-            De gebruiker kan hier niet aanzitten, want wij hebben zelf al de index gemaakt (insert link naar menselijke genoom die wij gebruiken).
-            <br><br><br><br><br>
-            bwa-mem2 -t [INT] -k [INT] -w [INT] -c [INT] ref.fa(referentie-genoom) reads.fq(DNA-data) > aln.sam (output-bestand)
+            De gebruiker kan hier niet aanzitten, want wij hebben zelf al de index gemaakt van de <a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000001405.40/">homo sapiens (mens)</a>  referentie genoom van February 3, 2022
+            <br><br><br>
+            <strong>>>> bwa-mem2 -t [INT] -k [INT] -w [INT] -c [INT] ref.fa(referentie-genoom) reads.fq(DNA-data) > aln.sam (output-bestand) </strong>
             <br><br>
             Dit commando is wat het dan echt gaat doen. De gebruiker kan dan ook voor dit commando aangeven wat voor dingen zij willen.
             <br><br>
-            -t, -t geeft aan hoeveel CPU-threads de computer mag gebruiken (dit hebben wij al gekozen voor onze website op … threads en dit kan de gebruiker niet veranderen, default=1)
+            Tweaks die de gebruiker zelf kan aan kan passen: <br>
+            <strong>-k:</strong> met -k kan de gebruiker kiezen hoeveel nucleotiden minimaal in een keer moeten overeenkomen tussen het FASTQ-bestand en referentie genoom om een match te zijn default=19.
             <br><br>
-            -k, met -k kan de gebruiker kiezen hoeveel nucleotiden minimaal in een keer moeten overeenkomen tussen het FASTQ-bestand en referentie genoom om een match te zijn default=19.
+            <strong>-c:</strong> limiteert het aantal keer dat dezelfde seed word gerapporteerd, in DNA-data komt vaak dezefde seeds erg vaak voor, alleen dit hoeft dan niet elke keer opgeschreven te worden. Met -c kan je dan kiezen hoeveel seeds hiervan worden gerapporteerd. Hoelager je dit zet hoe sneller het gaat en kleiner de output file is, default=500.
             <br><br>
-            -w bepaalt hoe ver uit elkaar seeds (matches) mogen liggen om aan elkaar gekoppeld te worden tijdens het vormen van alignments, zie figuur 3 het figuur hieronder. Grotere -w verhoogt sensitiviteit voor verspreide matches (handig bij grote inserties/deleties of foutrijke reads), default 100 description picture bwa seeds. Hoe hoger de -w hoe langer het duurt tot dat het programma klaar is.
-            <br><br>
-    
+            <strong>-w:</strong> bepaalt hoe ver uit elkaar seeds (matches) mogen liggen om aan elkaar gekoppeld te worden tijdens het vormen van alignments, zie figuur 2 het figuur hiernaast. Grotere -w verhoogt sensitiviteit voor verspreide matches (handig bij grote inserties/deleties of foutrijke reads), default 100 description picture bwa seeds. Hoe hoger de -w hoe langer het duurt tot dat het programma klaar is. <br><br>
+            Tweaks die de gebruiker niet kan aanpassen: <br>
+            <strong>-t:</strong> geeft aan hoeveel CPU-threads de computer mag gebruiken <br><br>
     </div>
         </div>
                 <div class="flex-column">
             <br>
             <img src="../static/pictures/fastq.png" alt="Een foto die laat zien hoe een FASTQ bestand eruit ziet." width="600" height="100">
             <br>
-            Figuur 1:
+            Figuur 1: <a href=https://info.biotechniques.com/hubfs/BTN%20-%20Zymo%20-%20IF%20-%20June%2022/DS5020_FASTQ_File_Format_Blog.pdf>FASTQ file format </a>
+
             <br>
             Hiervoor moet je een FASTQ-bestand hebben, dit bestand bevat een header/kop die de sequencer heeft gemaakt.
             Daarna is de DNA-sequentie voor het stukje DNA, hierna komt een "+" om de DNA-sequentie te scheiden van de kwaliteit van het DNA.
             Daarna komt dan de kwaliteit van het DNA ieder character staat voor een andere kwaliteit. 
             Zo een FASTQ-bestand bevat dan miljoenen verschillende van dit soort koppen met DNA en de DNA zijn kwaliteit scoren.
-            <br><br><br><br><br><br><br><br><br><br><br>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
             <img src="../static/pictures/seeds_bwa.png" alt="Een foto die laat zien hoe seeds werken">
             <br>
-            Figuur 2
+            Figuur 2: <a href=https://www.researchgate.net/figure/BWA-MEM-seed-and-extend-paradigm-illustrated-from-4_fig8_366327922>FASTQ file format </a>
             <br><br>
-            -c limiteert het aantal keer dat dezelfde seed word gerapporteerd, in DNA-data komt vaak dezefde seeds erg vaak voor, alleen dit hoeft dan niet elke keer opgeschreven te worden. Met -c kan je dan kiezen hoeveel seeds hiervan worden gerapporteerd. Hoelager je dit zet hoe sneller het gaat en kleiner de output file is, default=500.
         </div>
     </div>
 

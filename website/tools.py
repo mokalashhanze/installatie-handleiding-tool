@@ -95,6 +95,7 @@ def main(kwargs):
         output_file = output_file + "sorted_output.bam.bai"
     )
 
+    # Een dict om interger chromosome om te zetten naar de echte chromosomen in het mens.
     chromosome_dict = {
         1: 'NC_000001.11', 2: 'NC_000002.12', 3: 'NC_000003.12',
         4: 'NC_000004.12', 5: 'NC_000005.10', 6: 'NC_000006.12',
@@ -108,18 +109,25 @@ def main(kwargs):
     }
 
     #chromosoom mogelijkheden settupen
+    # Als chromosoom = 0 geen chromosome search
     if int(kwargs["chromosoom"]) == 0:
         final_tweaks = ""
     else:
+        # Variablen aanmaken en chromosoom omzetten voor terminal commando
         chromosoom = chromosome_dict[int(kwargs["chromosoom"])]
         begin = int(kwargs["chromosoom_begin"])
         eind = int(kwargs["chromosoom_eind"])
 
+        # Als begin niet gelijk aan 0 run de code voor 1 specifieke positie op 1 chromosome
         if begin != 0 and eind == 0:
             final_tweaks = f"-r {chromosoom}:{begin}"
+        # Als begin en einde zoek tussen deze 2 posities op het chromosoom
+        # Begin kan niet lager zijn dan einden doordat dit op de website word opgevangen in app.py
         elif begin != 0 and eind != 0:
             final_tweaks = f"-r {chromosoom}:{begin}-{eind}"
+        #Al is er geen begin of einde aan gegeven check door het hele chromosoom
         else:
+
             final_tweaks = f"-r {chromosoom}"
 
     bcftools_mpileup = Tool(
@@ -146,6 +154,7 @@ def main(kwargs):
         bcftools_call
     ]
 
+    # Run de tools
     for tool in pipeline:
         tool.run()
         print(tool)

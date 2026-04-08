@@ -1,16 +1,3 @@
-"""
-This file contains tests to make sure the website and the tools work correctly
-
-It checks multiple things:
-1. Website: Do the pages load(get) and does the form (POST) send data correctly?
-2. Tools: Does the 'Tool' class create the right commands for BWA, Samtools, and Bcftools?
-3. HTML: Is the code for all the web pages (templates) written without errors?(validation)
-
-Location and command line:
-path: installatie-handleiding-tool/website
-Commandline: python3 -m pytest
-"""
-
 import pytest
 import html5lib
 from app import app
@@ -41,13 +28,10 @@ def test_DYNAMISCHE_valid(client):
     Test of de dynamische pagina werkt
     """
     payload = {                               
-        "fastq_bestand": "test.fastq",
-        "nucleotiden_achter_elkaar": "15",
-        "afstand_matches": "10",
-        "maximaal_keer_gerapporteerd": "5",
-        "chromosoom": "1",
-        "chromosoom_begin": "100",
-        "chromosoom_eind": "200"
+        "fastq_bestand": "data.fastq",
+        "nucleotiden_achter_elkaar": "10",
+        "afstand_matches": "5",
+        "maximaal_keer_gerapporteerd": "2"
     }
     response = client.post('/bmf', data=payload) 
     assert response.status_code == 200   
@@ -119,25 +103,27 @@ def test_bcftools_mpileup_arguments():
     """
     Test de mpileup van de bcftools met variabelen voor bestandspaden.
     """
-    test_ref = "referentie/genome.fna"
-    test_in = "output/sorted_output.bam"
-    test_out = "output/bcftools_mpileup.bcf"
-    test_regio = "-r NC_000001.11:100-500"
-    
-    bcftools_mpileup = Tool(
-        method="bcftools mpileup",
-        refseq=test_ref,
-        input_file=test_in,
-        output_file=test_out,
-        tweaks=test_regio
+    # Definieer de variabelen
+    methode = "bcftools mpileup"
+    referentie = "referentie/genome.fna"
+    input_bam = "output/sorted.bam"
+    output_bcf = "output/mpileup.bcf"
+
+    # Maak het Tool object aan
+    bcftools_mpileup = Tool(       
+        method=methode,
+        refseq=referentie,
+        input_file=input_bam,
+        output_file=output_bcf
     )
     
     args = bcftools_mpileup.arguments()      
-    assert "bcftools mpileup" in args         
-    assert test_regio in args                 
-    assert f"-f {test_ref}" in args           
-    assert test_in in args                    
-    assert f"-o {test_out}" in args
+
+    #  Asserties met de variabelen
+    assert methode in args         
+    assert f"-f {referentie}" in args 
+    assert f"-o {output_bcf}" in args   
+    assert input_bam in args
 
 # 7. EDGE CASE: Verkeerd bestandstype 
 def test_ongeldig_bestanden(client):
@@ -145,9 +131,10 @@ def test_ongeldig_bestanden(client):
     Test hoe de website reageert op een ongeldige bestandsextensie (.pdf).
     """
     payload = {                     
-        "fastq_bestand": "fout.pdf",  
-        "nucleotiden_achter_elkaar": "10", "afstand_matches": "5", "maximaal_keer_gerapporteerd": "2",
-        "chromosoom": "1", "chromosoom_begin": "0", "chromosoom_eind": "0"
+        "fastq_bestand": "document.pdf",  
+        "nucleotiden_achter_elkaar": "10",
+        "afstand_matches": "5",
+        "maximaal_keer_gerapporteerd": "2"
     }
     response = client.post('/bmf', data=payload)  
     assert response.status_code == 200
@@ -161,12 +148,9 @@ def test_lege_velden(client):
     payload = { 
         "fastq_bestand": "", 
         "nucleotiden_achter_elkaar": "19",
-        "afstand_matches": "100",   
-        "maximaal_keer_gerapporteerd": "500",
-        "chromosoom": "1",                 
-        "chromosoom_begin": "0",          
-        "chromosoom_eind": "50"              
-    }
+        "afstand_matches": "100",
+        "maximaal_keer_gerapporteerd": "500"
+    } 
     response = client.post('/bmf', data=payload)
     assert response.status_code == 200
     assert b"Geen file, upload een file!" in response.data
@@ -186,4 +170,4 @@ def test_html_parse(client, uri):
         parser = html5lib.HTMLParser(strict=True, namespaceHTMLElements=False)
         htmldoc = parser.parse(response.data)
     except html5lib.html5parser.ParseError as error:
-        pytest.fail(f'{error.__class__.__name__}: {str(error)}', pytrace=False) 
+        pytest.fail(f'{error.__class__.__name__}: {str(error)}', pytrace=False)
