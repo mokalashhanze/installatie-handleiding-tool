@@ -6,16 +6,8 @@
         <div class="flex-column">
             <div class="paragraph_text" > 
             
-        <h1>    
-            Samtools V1.23:
-        </h1>
-
-        (
-            <a
-                href="https://www.htslib.org/download/"> (https://www.htslib.org/download/)
-       
-            </a>
-            )
+        <h1>Samtools V1.23:</h1>
+        <a href="https://www.htslib.org/download/">Samtools github</a>
 
 <br><br>
         SAMtools is een computerprogramma dat onderzoekers helpt om enorme
@@ -26,10 +18,7 @@
         in het genoom,BWA-mem2 doet dit niet zelf.
         <br><br>
 
-        <a   
-        href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7931819/" >
-        https://pmc.ncbi.nlm.nih.gov/articles/PMC7931819/
-        </a>. 
+        <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7931819/" >Twelve years of SAMtools and BCFtools</a>.
 
         <br>Dit wetenschappelijke artikel beschrijft de updates in samtools<br>
 
@@ -37,7 +26,7 @@
 
         <h2> Input: </h2>
 
-        <h3> Sam bestaand(tekst bestaand leesbaar voor mensen) </h3>
+        <h3> Sam bestand(tekst bestand leesbaar voor mensen) </h3>
 
         SAM staat voor Sequence Alignment/Map-formaat.
         Het is een plat tekstbestand met kolommen die gescheiden zijn door tabs.
@@ -52,7 +41,7 @@
                 
         <h2> Output: </h2>
 
-        <h3> Bam bestaand (binaire bestaand alleen leesbaar voor de computer) </h3>
+        <h3> Bam bestand (binaire bestand alleen leesbaar voor de computer) </h3>
 
         Een BAM-bestand (Binary Alignment Map) is de binaire versie van een SAM-bestand.
         Het is veel kleiner dan een SAM-bestand (vaak 75% kleiner)
@@ -96,12 +85,10 @@
         </div>
             <div class = "flex-column">
             <br><br>
-                <img src="../static/pictures//Sam.png" alt="Sam bestaand">
+                <img src="../static/pictures//Sam.png" alt="Sam-bestand">
             <br><br>
         Figuur 1:
-        <a
-                href="https://miro.medium.com/v2/resize:fit:4800/format:webp/0*CePvh8XpBcbC1HjZ.png"> (Sam_bestaand/)
-        </a>
+        <a href="https://miro.medium.com/v2/resize:fit:4800/format:webp/0*CePvh8XpBcbC1HjZ.png"> Sam-bestand</a>
             <br><br>
             Elke uitlijningslijn heeft 11 verplichte velden voor essentiële uitlijningsinformatie,
             zoals de positie van de kaart, en een variabel aantal optionele velden voor 
@@ -119,11 +106,7 @@
             10. Leesvolgorde<br>
             11. Leeskwaliteit<br>
 
-        <h4> Bronvermelding 1: </h4>
-        <a
-         href= "https://medium.com/@shilparaopradeep/samtools-guide-learning-how-to-filter-and-manipulate-with-sam-bam-files-2c28b25d29e8"> (sam_info_bron)
-         </a>
-        <br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br>
         <h3>3. Indexeren van BAM-bestand:</h3>
         <strong> >>>samtools index -b sorted_output.bam </strong><br>
         <h4> Items: </h4>
@@ -135,17 +118,15 @@
         <br><strong>wat het commando doet? </strong><br>
         Het maakt een index-bestand aan waarmee andere programma's (bcftools) razendsnel naar specifieke 
         locaties in het grote BAM-bestand kunnen springen zonder het hele bestand te hoeven lezen.
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <h3> Bronvermelding 2: </h3>  
+        <br><br>
+        <h3> Bronvermelding: </h3>
 
         <a
         href= https://medium.com/@shilparaopradeep/samtools-guide-learning-how-to-filter-and-manipulate-with-sam-bam-files-2c28b25d29e8>
-        (commando's-info-bron)
+        Commando's info bron
         </a>
-        <a
-        href= https://www.htslib.org/doc/samtools-view.html>
-        (commando's-voorbeelden)
-        </a>
+                <br>
+        <a href= https://www.htslib.org/doc/samtools-view.html>Commando's voorbeelden</a>
         </div>
     </div>
 {% endblock %}

@@ -45,6 +45,7 @@ def bmf():
 
     # ---------------- POST ----------------
     elif request.method == 'POST':
+        # Input van user
         kwargs = {
             "fastq_bestand": request.form['fastq_bestand'],
             "k": request.form['nucleotiden_achter_elkaar'],
@@ -55,18 +56,25 @@ def bmf():
             "chromosoom_eind" : request.form['chromosoom_eind'],
         }
 
+        # file type pakken
         file_name = kwargs["fastq_bestand"]
         file_type = file_name.rsplit(".", 1)[-1]
 
+        # Al is de file soort verkeerd laat dit zien op de website
         if file_type not in ("fastq", "fq"):
             kwargs["file"] = "slecht"
             return render_template("bmf-get.html", method="GET", **kwargs)
+
+        # Al is het begin punt hoger dan het eind punt voor chromosome regio search return een error op de website
         if int(kwargs["chromosoom_begin"]) > int(kwargs["chromosoom_eind"]):
             kwargs["chromosoom_status"] = "slecht"
             return render_template("bmf-get.html", method="GET", **kwargs)
 
         job_status = "running"
 
+        # Begin een thread om op de website een waiting page mogelijk te maken.
+        # Deamon=true zorgt ervoor dat de code verder kan runnen en kan returnen wanneer het wilt, anders moet het
+        # wachten tot de thread af is.
         thread = Thread(target=pijplijn, kwargs=kwargs, daemon=True)
         thread.start()
 

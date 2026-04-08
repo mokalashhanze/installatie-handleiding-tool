@@ -12,12 +12,14 @@
             Geen file, upload een file!
         {% endif %}
         {% if chromosoom_status %}
-            Einde is lager dan hoger, begin: {{ chromosoom_begin }}, einde: {{ chromosoom_eind }}
+            De chromosoom regio klopt niet, de eind positie is lager dan de start positie: {{ chromosoom_begin }}, einde: {{ chromosoom_eind }}
         {% endif %}
     </p>
 
     <form action="/bmf" method="post" class="paragraph_text">
-        <h2>Nieuwe run</h2>
+        <h1>Nieuwe run</h1>
+        Alle default inputs zijn aangegeven in de velden hieronder.
+
         <p>BWA-mem2</p>
 
         Upload hier jouw FASTQ-bestand:
@@ -25,30 +27,32 @@
         <input type="file" name="fastq_bestand" accept=".fastq, .fq">
         <br><br>
 
-        Minimaal aantal nucleotiden (-k):
+        Minimaal aantal nucleotiden die achter elkaar moeten zijn voor een match (-k):
         <br>
         <input type="number" min="10" max="2000" value="19" name="nucleotiden_achter_elkaar">
         <br><br>
 
-        Afstand tussen matches (-w):
+        Afstand tussen matches om aan elkaar gekoppeld te worden (-w):
         <br>
         <input type="number" min="50" max="500" value="100" name="afstand_matches">
         <br><br>
 
-        Maximaal aantal keer gerapporteerd (-c):
+        Maximaal aantal keer dat een match gerapporteerd wordt  (-c):
         <br>
         <input type="number" min="1" max="1500" value="500" name="maximaal_keer_gerapporteerd">
         <br><br>
         <p>BCFtools</p>
-        Chromosoom regio zoeken (0 betekent geen)
+        Chromosoon regio zoeken
         <br><br>
-        Chromosoom:
-        <input type="number" min="0" max="25" value="0" name="chromosoom"> <br>
-        Begin:
-        <input type="number" min="0"  value="0" name="chromosoom_begin"><br>
-        Eind:
-        <input type="number" min="0" value="0" name="chromosoom_eind"><br>
 
+        Chromosoom nummer (Chromosoom 0 is het hele genoom, 25 is het mitochondriaal DNA.):
+        <input type="number" min="0" max="25" value="0" name="chromosoom"> <br>
+        Begin positie op het chromosoom:
+        <input type="number" min="0"  value="0" name="chromosoom_begin"><br>
+        Eind eind positie op het chromosoom:
+        <input type="number" min="0" value="0" name="chromosoom_eind"><br><br>
+        Om specifiek voor 1 positie te kijken vul de positie in bij begin positie en laat eind positie op 0 <br>
+        Als begin en eind positie beiden nul zijn checkt hij voor het hele chromosoom <br><br>
 
         <button type="submit">Submit</button>
         {% if vorige %}
