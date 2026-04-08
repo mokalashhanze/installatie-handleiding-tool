@@ -24,10 +24,14 @@
             <br><br>
             <strong>>>> bcftools mpileup -f GCF_000001405.40_GRCh38.p14_genomic.fna -r chr1:100-500 -o output/mpileup.bcf input/sorted.bam </strong>
             <br><br>
-            <strong>mpileup:</strong> Het commando om reads per positie op het genoom.<br>
+            <strong>mpileup:</strong> Het commando om reads per positie op het genoom.<br><br>
+
+                Tweaks die de gebruiker zelf aan kan passen: <br>
+                <strong>-r:</strong>Deze tweak zorgt ervoor dat je de tool in specifieke regio’s van het referentie DNA kan laten werken,
+            wat handig is om specifieker te zoeken naar matches<br><br>
+
+                Tweaks die op de achtergrond gebruikt worden: <br>
             <strong>-f:</strong> Verwijst naar de fasta-file (het referentie-genoom), waarmee jouw data wordt vergeleken.<br>
-            <strong>-r:</strong>Deze tweak zorgt ervoor dat je de tool in specifieke regio’s van het referentie DNA kan laten werken,
-            wat handig is om specifieker te zoeken naar matches<br>
             <strong>-o:</strong> Specificeert de naam van het output-bestand.<br>
             <strong>output/mpileup.bcf:</strong> Het binaire uitvoerbestand met alle verzamelde informatie.<br>
             <strong>input/sorted.bam:</strong> Het gesorteerde invoerbestand met jouw DNA-data.
@@ -38,7 +42,8 @@
             <br><br><br>
             <strong>>>> bcftools call -m -O v -o output/out.vcf input/bcftools_mpileup.bcf</strong>
             <br><br>
-            <strong>call:</strong> Het commando om de uiteindelijke beslissing te nemen: is dit een mutatie?<br>
+            <strong>call:</strong> Het commando om de uiteindelijke beslissing te nemen: is dit een mutatie?<br><br>
+                Deze tweaks worden op de achtergrond gebruikt:<br>
             <strong>-m:</strong>  Activeert de multiallelic caller (voor complexere variaties).<br>
             <strong>-O v:</strong>  Vertelt het programma dat de output een leesbaar VCF-bestand moet zijn.<br>
             <strong>-o:</strong>  Specificeert de naam van het definitieve output-bestand.<br>
