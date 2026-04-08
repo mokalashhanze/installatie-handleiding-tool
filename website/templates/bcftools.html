@@ -13,13 +13,13 @@
             <br><br>
             Bcftools is een tool die vooral gebruikt wordt om VCF en BCF bestanden te manipuleren en analyseren.
             In het geval van onze pijplijn werken wij met een BAM-bestand als inputbestand en een VCF-bestand als outputbestand.
-            <br>de output van bcftools is een VCF-bestand, zie foto.
+            <br> De output van bcftools is een VCF-bestand, zie foto.
             <br><br>
             <h2> Bcftools commando's:</h2>
             <h3> Hieronder staan de argumenten die wij met BCFtools gaan gebruiken.</h3>
             <br>
             <h3> 1.<strong> Bcftools mpileup:</strong> </h3>
-            <br> een algoritme om de ‘genotype likelihoods’ (hoe waarschijnlijk een specifiek genotype is gebaseerd op de beschikbare data)
+            <br> Een algoritme om de ‘genotype likelihoods’ (hoe waarschijnlijk een specifiek genotype is gebaseerd op de beschikbare data)
             te berekenen en van deze berekeningen een BCF maakt.
             <br><br>
             <strong>>>> bcftools mpileup -f GCF_000001405.40_GRCh38.p14_genomic.fna -r chr1:100-500 -o output/mpileup.bcf input/sorted.bam </strong>
@@ -61,15 +61,15 @@
             <br><br>
             Verder bevat een VCF-bestand informatie over:
             <br><br>
-            welk chromosoom een mutatie zit (#chrom)
-            positie op het referentiegenoom (pos) <br>
-            unieke identificatie (ID) <br>
-            referentie base (REF) <br>
-            alternatieve base (ALT) <br>
-            kwaliteitsscore (QUAL), die de betrouwbaarheid van de variant call geeft <br>
-            status van de variant, wat ‘pass’ is als het aan de kwaliteitsfilters voldoet of de naam geeft van het filter waar hij op faalde (FILTER) <br>
-            aanvullende informatie, gescheiden door ‘;’(INFO) <br>
-            de structuur van de data in de monsterkolommen (FORMAT) <br>
+            Welk chromosoom een mutatie zit (#chrom)
+            Positie op het referentiegenoom (pos) <br>
+            Unieke identificatie (ID) <br>
+            Referentie base (REF) <br>
+            Alternatieve base (ALT) <br>
+            Kwaliteitsscore (QUAL), die de betrouwbaarheid van de variant call geeft <br>
+            Status van de variant, wat ‘pass’ is als het aan de kwaliteitsfilters voldoet of de naam geeft van het filter waar hij op faalde (FILTER) <br>
+            Aanvullende informatie, gescheiden door ‘;’(INFO) <br>
+            De structuur van de data in de monsterkolommen (FORMAT) <br>
             en een of meerdere kolommen met data per monster, zoals genotype in de vorm van 0/0, 0/1 of 1/1 voor recessief homozygoot, heterozygoot en dominant homozygoot
 
             Voor meer informatie over bcftools, raadpleeg
