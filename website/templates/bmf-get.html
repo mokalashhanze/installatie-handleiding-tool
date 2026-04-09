@@ -37,9 +37,9 @@
         <input type="number" min="50" max="500" value="100" name="afstand_matches">
         <br><br>
 
-        Maximaal aantal keer dat een match gerapporteerd wordt  (-c):
+        Minimale qualiteit scoren die nodig is om opgeschreven te worden (-c):
         <br>
-        <input type="number" min="1" max="1500" value="500" name="maximaal_keer_gerapporteerd">
+        <input type="number" min="1" max="2500" value="500" name="maximaal_keer_gerapporteerd">
         <br><br>
         <p>BCFtools</p>
         Chromosoon regio zoeken
@@ -64,9 +64,9 @@
             Nucleotiden achter elkaar: {{ vorige.k }} <br>
             Afstand matches: {{ vorige.w }} <br>
             Maximaal keer gerapporteerd: {{ vorige.c }} <br><br>
-            Vorig chromosoom: {{ vorige.chromosoom }} <br>
-            Vorige begin: {{ vorige.chromosoom_begin }}<br>
-            Vorige einde: {{ vorige.chromosoom_eind }} <br><br>
+            Chromosoom: {{ vorige.chromosoom }} <br>
+            Begin: {{ vorige.chromosoom_begin }}<br>
+            Einde: {{ vorige.chromosoom_eind }} <br><br>
             Vorige output: <br>
             <button type="button" onclick="window.location.href='/bmf/download'">out.vcf</button>
             <button type="button" onclick="window.location.href='/bmf/download2'">Mutaties</button>
@@ -91,9 +91,9 @@
             Nucleotiden achter elkaar: {{ k }} <br>
             Afstand matches: {{ w }} <br>
             Maximaal keer gerapporteerd: {{ c }} <br><br>
-            Vorig chromosoom: {{ chromosoom }} <br>
-            Vorige begin: {{ chromosoom_begin }}<br>
-            Vorige einde: {{ chromosoom_eind }} <br><br>
+            Chromosoom: {{ chromosoom }} <br>
+            Begin: {{ chromosoom_begin }}<br>
+            Einde: {{ chromosoom_eind }} <br><br>
             Uw output: <br>
             <button type="button" onclick="window.location.href='/bmf/download'">out.vcf</button>
             <button type="button" onclick="window.location.href='/bmf/download2'">Mutaties</button>
@@ -105,16 +105,16 @@
         <meta http-equiv="refresh" content="15;url=/bmf">
         <div class="paragraph_text">
 
-            <h2>Uw request is begonnen, dit kan lang duren (10–30 minuten).</h2>
+            <h2>Uw request is begonnen, dit kan lang duren.</h2>
             U wordt automatisch doorgestuurd zodra het klaar is!
             <br><br>
             fastq-bestand: {{ fastq_bestand }} <br>
             nucleotiden achter elkaar: {{ k }} <br>
             afstand matches: {{ w }} <br>
             Maximaal keer gerapporteerd: {{ c }} <br><br>
-            Vorig chromosoom: {{ chromosoom }} <br>
-            Vorige begin: {{ chromosoom_begin }}<br>
-            Vorige einde: {{ chromosoom_eind }}
+            Chromosoom: {{ chromosoom }} <br>
+            Begin: {{ chromosoom_begin }}<br>
+            Einde: {{ chromosoom_eind }}
         </div>
     {% endif %}
 {% endif %}

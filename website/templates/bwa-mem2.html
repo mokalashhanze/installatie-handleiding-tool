@@ -26,7 +26,7 @@
             Tweaks die de gebruiker zelf kan aan kan passen: <br>
             <strong>-k:</strong> met -k kan de gebruiker kiezen hoeveel nucleotiden minimaal in een keer moeten overeenkomen tussen het FASTQ-bestand en referentie genoom om een match te zijn default=19.
             <br><br>
-            <strong>-c:</strong> limiteert het aantal keer dat dezelfde seed word gerapporteerd, in DNA-data komt vaak dezefde seeds erg vaak voor, alleen dit hoeft dan niet elke keer opgeschreven te worden. Met -c kan je dan kiezen hoeveel seeds hiervan worden gerapporteerd. Hoelager je dit zet hoe sneller het gaat en kleiner de output file is, default=500.
+            <strong>-c:</strong> deze optie word gebruikt om aan te geven hoe hoog de kwaliteit moet zijn van de gevonden match. Hoe hoger de -c hoe minder matches je krijgt maar dan zijn ze allemaal wel van hoge kwaliteit. Hoe hoger je dit zet hoe kleiner de output file is, maar met wel beter matches. Default=500
             <br><br>
             <strong>-w:</strong> bepaalt hoe ver uit elkaar seeds (matches) mogen liggen om aan elkaar gekoppeld te worden tijdens het vormen van alignments, zie figuur 2 het figuur hiernaast. Grotere -w verhoogt sensitiviteit voor verspreide matches (handig bij grote inserties/deleties of foutrijke reads), default 100 description picture bwa seeds. Hoe hoger de -w hoe langer het duurt tot dat het programma klaar is. <br><br>
             Tweaks die de gebruiker niet kan aanpassen: <br>
